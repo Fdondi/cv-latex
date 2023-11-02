@@ -50,12 +50,21 @@
 \mobile{+41 76456 50 32\hfill\ }
 \email{francesco314@gmail.com\hfill\ }
 \social[linkedin]{francesco-dondi\hfill\ } 
-\address{8810 Horgen, ZH \hfill\ }
-\extrainfo{\faIcon{birthday-cake} Born 1990, Italy, Italian citizen\hfill\  \\ \faIcon{plus-square} Swiss C permit until 30.09.27 \hfill\ \\ \faIcon{globe} German B1\hfill\ }
+\address{Resident 8810 Horgen, Zürich canton \hfill\ }
+\extrainfo{\faIcon{birthday-cake} Born 1990, Italy, Italian citizen\hfill\  \\ \faIcon{plus-square} Swiss C permit until 30.09.27 \hfill\ \\ \faIcon{globe} German B2 planned Jan 2024\hfill\ }
 \photo[100pt][0pt]{me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
 %\quote{"A Florence on raconte \\ que la Terre serait ronde"}
 
 %----------------------------------------------------------------------------------------
+
+% Store the old definition of \makecvtitle
+\let\oldmakecvtitle\makecvtitle
+
+% Redefine \makecvtitle based on the old definition
+\renewcommand*{\makecvtitle}{%
+  \hfil% push content to the right
+  \oldmakecvtitle%
+}
 
 \begin{document}
 
@@ -63,6 +72,14 @@
 
 \section{Professional Experience}
 
+\cventry{03/2023 - 09/2023 \\ \textbf{DoubleCloud} \\ Fully Remote}{Software Developer}{}{}{}{Maintined and developed the infrastructure around managed ClickHouse, in particular:
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item Secured metrics server by adding Nginx
+\item Improved SaltStack configuration
+\item Solved bugs in Telegraf Go plugins
+\end{itemize}
+}
 \cventry{06/2021 - 09/2022 \\ \textbf{Firebolt} \\ Fully Remote}{Software Developer}{}{}{}{Maintinaing and developing the SQL optimization engine and testing infrastructure.
 \begin{itemize}
 \setlength\itemsep{-0.3em}
@@ -92,14 +109,15 @@
 \cventry{04/2016 - 10/2017 \\ \textbf{Ascent Software} \\ Luqa(Malta)}{Software Developer}{}{}{}{Bridging from internal API to new device API for automotive.}
 \cventry{04/2015 - 04/2016 \\ \textbf{Rulex Inc.}/\textbf{CNR} \\ Genova (Italy)}{Junior Developer}{}{Genua (Italy)}{}{Reworked C/MATLAB algorithms for OpenMP/CUDA parallelization}
 
-\includegraphics[scale=0.5]{languages.png}
-
 \section{Education}
 
+\cventry{2023 H1}{\href{https://execed-online.imperial.ac.uk/business-analytics}{From Data to Decisions}}{Imperial College Business School}{}{}{}
 \cventry{2009--2015}{\href{http://www.unipd-scuolagalileiana.it/en/}{Galileian School of Higher Education}}{University of Padua}{Enriching program for gifted students}{\textit{98/100}}{}
 \cventry{2012--2014}{Master Degree in Mathematics}{University of Padua}{}{\textit{108/110}}{}
 \cventry{2009--2012}{Bachelor Degree in Mathematics}{University of Padua}{}{\textit{110/110 cum Laude}}{}
 \cventry{2004--2009}{High School - Science Track, with added French and IT}{Liceo E. Fermi}{Bologna}{\textit{100/100 cum Laude}}{}
+
+\pagebreak
 
 \section{Skills}
 
@@ -121,22 +139,17 @@
 \cvitem{Versioning}{Git, SVN, [Google internal] }
 \cvitem{Debug}{GDB, Valgrind, [Google internal]}
 \cvitem{Profiling}{Valgrind, \href{http://www.brendangregg.com/flamegraphs.html}{Flamegraph}}
-\cvitem{Orchestration}{\href{https://en.wikipedia.org/wiki/Kubernetes}{Borg (model of Kubernetes)}}
+\cvitem{Orchestration}{[Google Internal], Docker/Docker-Compose, \href{https://github.com/saltstack/salt/blob/master/README.rst}{SaltStack}}
 \cvitem{Data presentation}{\href{https://marketingplatform.google.com/about/data-studio/}{Google Data Studio}, \textsc{Julia} Plot modules}
 
 \section{Language}
 
-\cventry{2022-2023}{In-person intensive course, level A2-B1}{German}{Zürich}{}{}
-\cventry{2018}{In-person private course level A2}{German}{Zürich}{}{}
-\cventry{2009}{English course with Home-stay}{English}{York}{}{}
-\cventry{2005}{Cultural exchange}{French}{Marseille}{}{}
-
-\subsection{Levels}
-
 \cvitemwithcomment{Italian}{Mother tongue}{}
-\cvitemwithcomment{English}{Advanced}{110/120 TOEFL}
-\cvitemwithcomment{French}{Intermediate}{Good understanding, understandable conversation}
-\cvitemwithcomment{German}{Good}{B1 level}
+\cvitemwithcomment{English}{Advanced}{110/120 TOEFL, daily use}
+\cvitemwithcomment{German}{Intermediate}{B2 level planned from Jan 2024}
+\cvitemwithcomment{French}{Good}{}
+\cvitemwithcomment{Arabic}{Beginner}{Wife teaching me}
+
 
 \section{More}
 {\small

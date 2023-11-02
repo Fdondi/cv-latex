@@ -66,6 +66,18 @@
   \oldmakecvtitle%
 }
 
+\newcommand{\ToolList}[1]{
+\hfill
+\begin{minipage}[t]{0.15\textwidth}
+{\tiny
+  \begin{itemize}
+    \setlength\itemsep{-0.3em}
+    #1
+  \end{itemize}
+}
+\end{minipage}
+}
+
 \begin{document}
 
 \makecvtitle % Print the CV title
@@ -73,7 +85,7 @@
 \section{Professional Experience}
 \cventry{03/2023 - 09/2023 \\ \textbf{DoubleCloud} \\ Fully Remote}{Software Developer}{}{}{}{
 \noindent
-\begin{minipage}[t]{0.75\textwidth}
+\begin{minipage}[t]{0.65\textwidth}
 Maintained and developed the infrastructure around managed ClickHouse, in particular:
 \begin{itemize}
 \setlength\itemsep{-0.3em}
@@ -82,32 +94,46 @@ Maintained and developed the infrastructure around managed ClickHouse, in partic
 \item Solved bugs in Telegraf Go plugins
 \end{itemize}
 \end{minipage}
-\hfill
-\begin{minipage}[t]{0.2\textwidth}
-{\tiny
-  \begin{itemize}
-	\setlength\itemsep{-0.3em}
-	\item \faCode{} C++
-	\item \faCode{} Go
-    \item \faDatabase{} ClickHouse (SQL)
+\ToolList{
+	\item \faPencil*{} C++
+	\item \faPencil*{} Go
+	\item \faPencil*{} Bash
+    \item \faDatabase{} ClickHouse SQL
 	\item \faCodeBranch{} Git
-    \item \faCog{} Nginx
-	\item \faCog{} SaltStack
-	\item \faCog{} Telegraf
-  \end{itemize}
+	\item \faLinux Linux, Bash
 }
-\end{minipage}
+\ToolList{
+	\item \faCloud{} AWS storage
+	\item \faCog{} Docker
+	\item \faCog{} Jenkins CI
+	\item \faCog{} Nginx
+	\item \faCog{} SaltStack
+}
 }
 
-\cventry{06/2021 - 09/2022 \\ \textbf{Firebolt} \\ Fully Remote}{Software Developer}{}{}{}{Maintained and developed the SQL optimization engine and testing infrastructure.
+\cventry{06/2021 - 09/2022 \\ \textbf{Firebolt} \\ Fully Remote}{Software Developer}{}{}{}{
+\noindent
+\begin{minipage}[t]{0.75\textwidth}
+Maintained and developed the SQL optimization engine and testing infrastructure.
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item Expanded supported SQL syntax and optimizations
 \item reworked the test framework to support new test suite
 \item contributed to rewriting to higher standards the optimization engine 
 \end{itemize}
+\end{minipage}
+\ToolList{
+	\item \faPencil*{} C++
+	\item \faPencil*{} Python
+    \item \faDatabase{} Firebolt SQL
+	\item \faCodeBranch{} Git
+    \item \faCloud{} AWS storage
 }
+}
+
 \cventry{08/2020 - 02/2021 \\ \textbf{F-Trust} \\ Zug / 50\% Remote}{Developer / Analyst}{}{}{}{
+\noindent
+\begin{minipage}[t]{0.65\textwidth}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item Maintained and developed a Trading Engine (C++)
@@ -115,8 +141,27 @@ Maintained and developed the infrastructure around managed ClickHouse, in partic
 \item extracted and integrated data from multiple log streams
 \item analyzed said data to highlight opportunities for improvement (Julia)
 \end{itemize}
+\end{minipage}
+\ToolList{
+	\item \faPencil*{} C++
+	\item \faPencil*{} Julia
+    \item \faDatabase{} PostgreSQL
+	\item \faCodeBranch{} Git
+	\item \faBrain{} Data Science
 }
-\cventry{10/2017 - 05/2020 \\ \textbf{Google} \\ Zürich / 10\% Remote}{Software Developer}{}{}{}{Within Search, productionized an initially experimental tool (C++).
+\ToolList{
+	\item \faLinux Linux
+	\item \faLinux Bash
+	\item \faLinux SSH
+	\item \faLinux VIM
+	\item \faLinux \href{https://linuxize.com/post/how-to-use-linux-screen/}{Screen}
+}
+}
+
+\cventry{10/2017 - 05/2020 \\ \textbf{Google} \\ Zürich / 10\% Remote}{Software Developer}{}{}{}{
+\noindent
+\begin{minipage}[t]{0.65\textwidth}
+Within Search, productionized an initially experimental tool (C++).
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item Improved runtime from days to hours
@@ -124,9 +169,53 @@ Maintained and developed the infrastructure around managed ClickHouse, in partic
 \item made the results easily visualizable and monitorable
 \item made onboarding orders of magnitude faster for most cases
 \end{itemize}
+\end{minipage}
+\ToolList{
+	\item \faPencil*{} C++
+	\item \faPencil*{} Python
+    \item \faDatabase{} Google SQL
+	\item \faCodeBranch{} ~internal~
+    \item \faCog{} Valgrind
+	\item \faCog{} Flamegraph
 }
-\cventry{04/2016 - 10/2017 \\ \textbf{Ascent Software} \\ Luqa(Malta)}{Software Developer}{}{}{}{Bridging from internal API to new device API for automotive.}
-\cventry{04/2015 - 04/2016 \\ \textbf{Rulex Inc.}/\textbf{CNR} \\ Genova (Italy)}{Junior Developer}{}{Genua (Italy)}{}{Reworked C/MATLAB algorithms for OpenMP/CUDA parallelization}
+\ToolList{
+	\item \faBrain{} DevOps
+	\item \faBrain{} Design Docs
+	\item \faLinux{} Linux
+	\item \faPencil*{} Bash
+	\item \faCog{} Kubernetes
+}
+}
+\cventry{04/2016 - 10/2017 \\ \textbf{Ascent Software} \\ Luqa(Malta)}{Software Developer}{}{}{}{
+\noindent
+\begin{minipage}[t]{0.65\textwidth}
+Bridging from internal API to new device API for automotive.
+\end{minipage}
+\ToolList{
+	\item \faPencil*{} C++
+	\item \faBrain{} Embedded development
+}
+\ToolList{
+    \item \faBrain{} Agile development
+	\item \faCodeBranch{} Git
+}
+}
+
+
+\cventry{04/2015 - 04/2016 \\ \textbf{Rulex Inc.}/\textbf{CNR} \\ Genova (Italy)}{Junior Developer}{}{Genua (Italy)}{}{
+\noindent
+\begin{minipage}[t]{0.65\textwidth}
+Reworked C/MATLAB algorithms for OpenMP/CUDA parallelization
+\end{minipage}
+\ToolList{
+	\item \faPencil*{} C
+	\item \faCog{} Nvidia CUDA
+} 
+\ToolList{
+    \item \faPencil*{} MATLAB
+    \item \faPencil*{} Python
+}
+}
 
 \section{Education}
 

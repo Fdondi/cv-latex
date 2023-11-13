@@ -33,8 +33,10 @@
 \usepackage{enumitem}
 \usepackage{fontawesome5}
 \usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
 
-\usepackage[scale=0.9, top=1cm, bottom=3cm, left=0.7cm, right=0.7cm]{geometry} % Reduce document margins
+\usepackage[scale=0.9, top=1cm, bottom=1cm, left=0.7cm, right=0.7cm]{geometry} % Reduce document margins
 \setlength{\hintscolumnwidth}{4cm} % Uncomment to change the width of the dates column
 %\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
 
@@ -46,7 +48,7 @@
 \familyname{Dondi} % Your last name
 
 % All information in this block is optional, comment out any lines you don't need
-\title{Curriculum Vit\ae{}}
+\title{A Florence on raconte \\ \hfill que la Terre serait ronde}
 \mobile{+41 76456 50 32\hfill\ }
 \email{francesco314@gmail.com\hfill\ }
 \social[linkedin]{francesco-dondi\hfill\ }
@@ -54,7 +56,6 @@
 \address{Resident 8810 Horgen, Zürich canton \hfill\ }
 \extrainfo{\faIcon{birthday-cake} Born 1990, Italy, Italian citizen\hfill\  \\ \faIcon{plus-square} Swiss C permit until 30.09.27 \hfill\ \\ \faIcon{globe} German B2 planned Mar 2024\hfill\ }
 \photo[100pt][0pt]{me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
-%\quote{"A Florence on raconte \\ que la Terre serait ronde"}
 
 %----------------------------------------------------------------------------------------
 
@@ -82,8 +83,16 @@
 \begin{document}
 
 \makecvtitle % Print the CV title
-\vspace{-5mm}
+\vspace{-10mm}
+\begin{minipage}{0.5\linewidth}
+\vspace{7mm}
 \section{Professional Experience}
+\end{minipage}
+\begin{minipage}{0.5\linewidth}
+  \centering
+\includegraphics[width=0.7\textwidth]{cloud_long.png}
+\vspace{-4mm}
+\end{minipage}
 \cventry{03/2023 - 09/2023 \\ \textbf{DoubleCloud}}{Software Developer}{}{Fully Remote}{}{
 \noindent
 \begin{minipage}[t]{0.65\textwidth}

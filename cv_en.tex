@@ -35,6 +35,10 @@
 \usepackage{ragged2e}
 \usepackage{graphicx}
 \usepackage{wrapfig}
+\usepackage{accsupp}
+
+% Ensure that what displays C#, grabbing the text gets C-<ascii hex-23 = #>
+\newcommand*{\Csh}{C\texttt{\#} }
 
 \usepackage[scale=0.9, top=1cm, bottom=1cm, left=0.7cm, right=0.7cm]{geometry} % Reduce document margins
 \setlength{\hintscolumnwidth}{4cm} % Uncomment to change the width of the dates column
@@ -249,21 +253,41 @@ Reworked C/MATLAB algorithms for OpenMP/CUDA parallelization
 
 \section{Formal education}
 
-\cventry{2023 H1}{\href{https://execed-online.imperial.ac.uk/business-analytics}{From Data to Decisions}}{Imperial College Business School}{}{}{}
-\cventry{2009--2015}{\href{http://www.unipd-scuolagalileiana.it/en/}{Galileian School of Higher Education}}{University of Padua}{Enriching program for gifted students}{\textit{98/100}}{}
+\cventry{2023 H1}{\href{https://execed-online.imperial.ac.uk/business-analytics}{Business Analytics: From Data to Decisions}}{Imperial College Business School}{}{}{}
+\cventry{2009--2015}{\href{http://www.unipd-scuolagalileiana.it/en/}{Galileian School of Higher Education}}{University of Padua}{University-level enriching program for gifted students}{\textit{98/100}}{}
 \cventry{2012--2014}{Master Degree in Mathematics}{University of Padua}{}{\textit{108/110}}{}
 \cventry{2009--2012}{Bachelor Degree in Mathematics}{University of Padua}{}{\textit{110/110 cum Laude}}{}
-\cventry{2004--2009}{High School - Science Track, with added French and IT}{Liceo E. Fermi}{Bologna}{\textit{100/100 cum Laude}}{}
+\cventry{2004--2009}{High School - Science Track, added IT, French}{Liceo Fermi}{Bologna}{\textit{100/100 cum Laude}}{}
 
 \section{Continuous Learning}
 
-\cventry{Nov 2023}{Business Intelligence for Consultants}{Linkedin}{Gini von Courter}{3h 45m}{
+% <3h: 1-3 lines
+% 3-10h: 4-5 lines
+% >10h: 6-10 lines
+
+\subsection{Data Science/Analytics}
+
+\cventry{Nov 2023}{Data Fluency: Exploring and Describing Data}{Linkedin}{Barton Poulson}{}{
+\begin{minipage}[t]{0.65\textwidth}
+how to prepare and adapt data, explore it visually, and use statistical methods to describe it, going in depth on probability and interference. Also touching on data ethics and explainable AI. Thinking with data; preparing data; adapting data; exploring data; describing data; understanding probability and inference.
+\end{minipage}
+\ToolList{
+	\item \faBrain{} Data Science
+	\item \faBrain{} Preparing data 
+}
+\ToolList{
+	\item \faBrain{} Exploring data
+	\item \faBrain{} Probability
+}
+}
+
+\cventry{Nov 2023}{Power BI Essential Training}{Linkedin}{Gini von Courter}{3h 45m}{
 \begin{minipage}[t]{0.65\textwidth}
 Data types in Power BI. Visualizations in Power BI. Outcomes when changes are made within Power BI and Power BI Desktop. Dashboards vs reports within Power BI. User roles within a workspace in Power BI.
 Workspaces and tools within the Power BI mobile application.
 \end{minipage}
 \ToolList{
-	\item \faBrain{} Microsoft Power BI 
+	\item \faCog{} Microsoft Power BI 
 }
 \ToolList{	
 	\item \faBrain{} Data Visualization
@@ -284,7 +308,7 @@ Determine the essentials of business needs. Recognize the fundamentals in review
 
 \cventry{Oct 2023}{Data Analytics for Business Professionals}{Linkedin}{John Johnsond}{1h 16m}{
 \begin{minipage}[t]{0.65\textwidth}
-Explore examples of real-life analytics in action, distinguishing between predictive and prescriptive approaches, and learning how to formulate and pose your own questions. Find out how to collect, clean, and aggregate data from different sources across your organization, and identify when data is flawed.
+Real-life analytics in action. Predictive and prescriptive approaches. Formulate and pose your own questions. Collect, clean, and aggregate data from different sources. Identify when data is flawed.
 \end{minipage}
 \ToolList{
 	\item \faCog{} Pandas	
@@ -323,9 +347,26 @@ New data scientists must be able to empathize, persuade, and lead others if they
 }
 }
 
+
+\subsection{AI and LLMs}
+
+\subsection{Programming languages}
+
+\cventry{Nov 2023}{\Csh Essential Training 1: Types and Control Flow}{Linkedin}{ Matt Milner}{2h 38m}{
+\begin{minipage}[t]{0.65\textwidth}
+\Csh in context; .NET, MSIL, and the Base Class Library. Fundamental patterns  of \Csh from control flow to enums and switch matches.
+\end{minipage}
+\ToolList{
+	\item \faPencil*{}\Csh 
+}
+\ToolList{
+	\item \faBrain{} \Csh patterns 
+}
+}
+
 \cventry{Oct 2023}{Learning MATLAB}{Linkedin}{Steven Moser}{1h 13m}{
 \begin{minipage}[t]{0.65\textwidth}
-How to harness the MATLAB tools and create programs to model your own data and hypotheses
+MATLAB tools to model data and hypotheses
 \end{minipage}
 \ToolList{
 	\item \faPencil*{} MATLAB 
@@ -335,9 +376,25 @@ How to harness the MATLAB tools and create programs to model your own data and h
 }
 }
 
+\subsection{Embedded development}
+
+\cventry{Nov 2023}{C Programming for Embedded Applications}{Linkedin}{Eduardo Corpeño}{2h 5m}{
+\begin{minipage}[t]{0.65\textwidth}
+Deliver applications that are small, efficient, and fast for the Internet of Things. Memory, storage, power limitations, and hardware awareness.
+\end{minipage}
+\ToolList{
+	\item \faPencil*{} C Embedded
+}
+\ToolList{
+	\item \faBrain{} Embedded Development 
+}
+}
+
+\subsection{Cloud and DevOps}
+
 \cventry{Feb 2023}{AWS Certified Solutions Architect - Associate (SAA-C02) Cert Prep: 1 Cloud Services Overview}{Linkedin}{Tom Carpenter}{1h7m}{
 \begin{minipage}[t]{0.65\textwidth}
-Explore the benefits of cloud computing, the range of AWS services, the security solutions built into AWS, and the AWS regions and availability zones.
+AWS services, security solutions of AWS, AWS regions and availability.
 \end{minipage}
 \ToolList{
 	\item \faCog{} AWS Cloud 
@@ -358,6 +415,27 @@ The information senior executives —CTOs, vice presidents, and chief architects
 	\item \faBrain{} Cloud Development 
 }
 }
+
+\section{Projects}
+
+\subsection{Embedded}
+
+\cventry{Nov 2023}{BTC Arduino monitor}{\href{https://github.com/Fdondi/arduino-btc}{https://github.com/Fdondi/arduino-btc}}{}{}{
+\begin{minipage}[t]{0.6\textwidth}
+A bot checking Bitcoin prices and blinking a green led if the price is above average, red if below. The speed of blinking depends on the magnitude of the change. 
+\end{minipage}
+\ToolList{
+	\item \faPencil*{} Embedded C++ 
+	\item \faCog{} Arduino
+	\item \faCog{} Embedded web API 
+}
+\begin{minipage}[t]{0.2\textwidth}
+\vspace{-8mm}
+\includegraphics[width=0.99\textwidth]{arduino_btc_project.jpg}
+\vspace{8mm}
+\end{minipage}
+}
+
 
 \section{More}
 {\small

@@ -37,6 +37,16 @@
 \usepackage{wrapfig}
 \usepackage{datatool}
 
+\definecolor{customTeal}{RGB}{0, 128, 128} % RGB for Teal
+\definecolor{customTurquoise}{RGB}{64, 224, 208} % RGB for Turquoise
+\definecolor{lightGrey}{RGB}{211, 211, 211} % RGB for Light Grey
+\definecolor{lightBlue}{HTML}{79B8CF}
+\definecolor{blueGray}{HTML}{748FB0}
+
+% Alias
+\newcommand{\colorTwo}{blueGray}
+
+
 % Ensure that what displays C#, grabbing the text gets C-<ascii hex-23 = #>
 \newcommand*{\Csh}{C\texttt{\#} }
 
@@ -52,7 +62,7 @@
 
 \newcommand{\skl}[1]{%
 	\textcolor{white}{#1}% Still presents just the number to document text grab/copy
-	\textcolor{color1}{\skilllevel{#1}}%
+	\textcolor{\colorTwo}{\skilllevel{#1}}%
 }
 
 \usepackage[scale=0.9, top=1cm, bottom=1cm, left=0.7cm, right=0.7cm]{geometry} % Reduce document margins

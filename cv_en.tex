@@ -36,6 +36,7 @@
 \usepackage{graphicx}
 \usepackage{wrapfig}
 \usepackage{datatool}
+\usepackage{paracol}
 
 \definecolor{customTeal}{RGB}{0, 128, 128} % RGB for Teal
 \definecolor{customTurquoise}{RGB}{64, 224, 208} % RGB for Turquoise
@@ -280,10 +281,8 @@ Français & Bon \\
 \cventry{2009--2012}{Bachelor Degree in Mathematics}{University of Padua}{}{\textit{110/110 cum Laude}}{}
 \cventry{2004--2009}{High School - Science Track, added IT, French}{Liceo Fermi}{Bologna}{\textit{100/100 cum Laude}}{}
 
-\section{Continuous Learning}
-
 \newcommand{\BeginCourses}{%
-	\begin{tabular}{r@{\hspace{1em}}c@{\hspace{1em}}p{0.75\textwidth}}
+	\begin{tabular}{r@{\hspace{1em}}c@{\hspace{1em}}p{0.5\textwidth}}
 }
 \newcommand{\EndCourses}{\end{tabular}}
 
@@ -291,9 +290,13 @@ Français & Bon \\
 \hspace{1.5em} #1 & \textit{#3} & \textbf{#2} \\
 }
 
-\subsection{Data Science/Analytics}
 
-\begin{minipage}[t]{0.65\textwidth}
+\section{Continuous Learning}
+
+\subsection{Data Science/Analytics}
+\columnratio{0.72}
+\begin{paracol}{2}
+\switchcolumn[0]*
 \BeginCourses
 \Course{Nov 2023}{Data Fluency: Exploring and Describing Data}{Linkedin}
 \Course{Nov 2023}{Power BI Essential Training}{Linkedin}
@@ -302,53 +305,98 @@ Français & Bon \\
 \Course{Oct 2023}{Excel: Economic Analysis and Data Analytics}{Linkedin}
 \Course{Oct 2023}{The Non-Technical Skills of Effective Data Scientists}{Linkedin}
 \EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{Data Analysis}{3}
+\tskl{Data Visualization}{4}
+\tskl{Probability}{4}
+\tskl{Microsoft Power BI}{2}
+\tskl{Microsoft Excel}{5}
+\tskl{Pandas}{4}
+\end{tabular}
+\end{paracol}
+
 \subsection{AI and LLMs}
 
 \subsection{Programming languages}
+\begin{paracol}{2}
 \BeginCourses
 \Course{Nov 2023}{\Csh Essential Training 1: Types and Control Flow}{Linkedin}
 \Course{Oct 2023}{Learning MATLAB}{Linkedin}
 \EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{\Csh}{2}
+\tskl{MATLAB}{3}
+\end{tabular}
+\end{paracol}
+
 \subsection{Embedded development}
+\begin{paracol}{2}
 \BeginCourses
 \Course{Nov 2023}{C Programming for Embedded Applications}{Linkedin}
 \EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{C Embedded}{3}
+\end{tabular}
+\end{paracol}
 \subsection{Cloud and DevOps}
+\begin{paracol}{2}
 \BeginCourses
 \Course{Feb 2023}{AWS Certified Solutions Architect - Associate (SAA-C02) Cert Prep: 1 Cloud Services Overview}{Linkedin}
 \Course{Jan 2023}{DevOps Foundations: Going Cloud Native}{Linkedin}
 \EndCourses
-\end{minipage}
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{Cloud Admin}{3}
+\tskl{AWS Cloud}{4}
+\tskl{DevOps}{3}
+\end{tabular}
+\end{paracol}
+
+\newcommand{\Project}[5]{
+\hspace{-1em}\raisebox{\dimexpr\ht\strutbox-\height}{\includegraphics[width=0.12\textwidth]{#1}} & #2 & \textbf{#3} \newline \href{http://#4}{\textcolor{blueGray}{#4}} \newline #5 \\ 
+}
+
 \section{Projects}
 
 \subsection{Embedded}
+\begin{paracol}{2}
+\BeginCourses
+\Project{arduino_btc_project.jpg}{Nov 2023}{BTC Arduino monitor}{github.com/Fdondi/arduino-btc}{A bot checking Bitcoin prices and blinking a green led if the price is above average, red if below. The speed of blinking depends on the magnitude of the change.}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{C++ Embedded}{3}
+\tskl{Arduino}{2}
+\tskl{SSH embedded}{1}
+\tskl{Embedded Development}{2}
+\end{tabular}
+\end{paracol}
 
-\begin{minipage}[t]{0.12\textwidth}
-%\vspace{-5mm}
-\raisebox{\dimexpr\ht\strutbox-\height}{\includegraphics[width=\textwidth]{arduino_btc_project.jpg}}
-%\vspace{10mm}
-\end{minipage}
-\begin{minipage}[t]{0.08\textwidth}
-\hfill Nov 2023 \\
-\end{minipage}
-\begin{minipage}[t]{0.5\textwidth}
-\textbf{BTC Arduino monitor} \href{https://github.com/Fdondi/arduino-btc}{https://github.com/Fdondi/arduino-btc}
-A bot checking Bitcoin prices and blinking a green led if the price is above average, red if below. The speed of blinking depends on the magnitude of the change. 
-\end{minipage}
+\subsection{LLMs / Prompt engineering}
+\begin{paracol}{2}
+\BeginCourses
+\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{A CustomGPT, takes one word and provides grammar, explanation in German and English, examples of use, and a final image visualizing the concept. Clarifies ambiguous or misspelled words, can discuss any user doubt. Can adjust German level used both automatically and on request.}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{AI UX}{3}
+\tskl{Prompt engineering}{3}
+\end{tabular}
+\end{paracol}
 
-\section{More}
-{\small
+\subsection{UI/Design}
+\begin{paracol}{2}
+\BeginCourses
+\Project{CV.png}{Dec 2023}{This CV}{github.com/Fdondi/cv-latex}{\LaTeX CV, heavily modified from \textit{moderncv}, with a wordcloud and second bar on the left to showcase competences level. Two more colors introduced. Courses and projects are diplayed with custom formatting.}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{\LaTeX}{5}
+\tskl{Business communication}{4}
+\end{tabular}
+\end{paracol}
 
-\subsection{Awards}
-
-\cvitem{2014}{ GRE test score: Verbal 165 ($95^\circ$ percentile), Quantitative : 170 ($98^\circ$ percentile), Analytical: 4.0 ($56^\circ$ percentile }
-\cvitem{2009}{Italian Olympics of Mathematics: Gold}
-\cvitem{2008}{Italian Olympics of Information Technology: Bronze}
-\cvitem{2006}{Special mention in high school literary prize ``Le ali dell'Ippogrifo''}
-
-\subsection{Hackatons}
-
-\cvitem{12-13/12/15}{\href{https://www.h-farm.com/en}{H-Farm} H-Ack Luxottica: ideas for the future of glasses. } 
-\cvitem{19-20/03/16}{\href{https://www.h-farm.com/en}{H-Farm} H-Ack Food: reinventing the 'Bio food' experience. }
-}
 \end{document}

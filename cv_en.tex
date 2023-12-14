@@ -114,6 +114,10 @@ Married, no children}
 }
 
 \newcommand{\tsection}[1]{%
+	\textcolor{color1}{\Large{#1}} & \\%
+}
+
+\newcommand{\tssection}[1]{%
 	\textcolor{color1}{#1} & \\%
 }
 
@@ -128,30 +132,15 @@ Married, no children}
 \begin{document}
 
 \makecvtitle % Print the CV title
-\vspace{-12mm}
-\begin{minipage}{0.6\linewidth}
-\ 
-\end{minipage}
-\begin{minipage}{0.44\linewidth}
-\centering
-\includegraphics[width=0.99\textwidth]{cloud_long.png}
-%\vspace{-4mm}
-\end{minipage}
-\noindent
-\begin{minipage}[t]{0.75\linewidth}
-\vspace{-12mm}
-\section{Experience}
-\cventry{09/2023 - Current}{Growth time}{}{}{}{
-\noindent
-\begin{minipage}[t]{0.65\textwidth}
-Restarted intensive German study. First personal embedded development project (Arduino). Experimented with LLMs, including: prompt engineering, created a CustomGPT to assist with German learning; architecture, discovered the details of transformer structure and parameter efficient training; learnt to run language models locally.
-\end{minipage}
-}
-
-
+\vspace{-10mm}
+\columnratio{0.75}
+\begin{paracol}{2}
+\section{Who I am}
+As a seasoned software developer, I bring a wealth of experience in developing robust software solutions, optimizing SQL databases, and implementing effective data analytics. My technical acumen extends to securing servers, enhancing system configurations, and driving large-scale infrastructure projects. Complementing these technical skills, I am known for my clear communication and entrepreneurial approach, fostering positive relationships with colleagues, superiors, and clients.
+\section{Professional Experience}
 \cventry{03/2023 - 09/2023 \\ \Company{DoubleCloud} \\ Company size: 50-100}{Software Developer}{}{Zürich}{}{
 \noindent
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}{0.65\textwidth}
 Maintained and developed the infrastructure around managed ClickHouse, in particular:
 \begin{itemize}
 \setlength\itemsep{-0.3em}
@@ -162,16 +151,9 @@ Maintained and developed the infrastructure around managed ClickHouse, in partic
 \end{minipage}
 }
 
-\cventry{10/2022 - 02/2023}{Personal Time}{}{}{}{
-\noindent
-\begin{minipage}[t]{0.65\textwidth}
-Got married, organized celebrations across two continents. Moved house. Started studying German intensively. Sailed for a week for the first time. Decided to take Data Science certification (see Education). 
-\end{minipage}
-}
-
 \cventry{06/2021 - 09/2022 \\ \Company{Firebolt} \\ Company size: 50-100}{Software Developer}{}{Zürich}{}{
 \noindent
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}{0.65\textwidth}
 Maintained and developed the SQL optimization engine and testing infrastructure.
 \begin{itemize}
 \setlength\itemsep{-0.3em}
@@ -184,7 +166,7 @@ Maintained and developed the SQL optimization engine and testing infrastructure.
 
 \cventry{08/2020 - 02/2021 \\ \Company{F-Trust} \\ Company size: 5}{Developer / Analyst}{}{Zug}{}{
 \noindent
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}{0.65\textwidth}
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item Maintained and developed a Trading Engine (C++)
@@ -197,7 +179,7 @@ Maintained and developed the SQL optimization engine and testing infrastructure.
 
 \cventry{10/2017 - 05/2020 \\ \Company{Google} \\ Company size: 100.000}{Software Developer}{}{Zürich}{}{
 \noindent
-\begin{minipage}[t]{0.65\textwidth}
+\begin{minipage}{0.65\textwidth}
 Within Search, productionized an initially experimental tool (C++).
 \begin{itemize}
 \setlength\itemsep{-0.3em}
@@ -211,32 +193,23 @@ Within Search, productionized an initially experimental tool (C++).
 
 \cventry{04/2016 - 10/2017 \\ \Company{Ascent Software}}{Software Developer}{}{Luqa, Malta}{}{
 \noindent
-\begin{minipage}[t]{0.65\textwidth}
-Bridging from internal API to new device API for automotive.
+\begin{minipage}{0.65\textwidth}
+I helped maintain and develop a driver (C++) for automotive communications, running both on regular computers and embedded (QNX real-time OS) systems.
 \end{minipage}
 }
 
 
 \cventry{04/2015 - 04/2016 \\ \Company{Rulex Inc.}/\Company{CNR}}{Junior Developer}{}{Genua, Italy}{}{
 \noindent
-\begin{minipage}[t]{0.65\textwidth}
-Reworked C/MATLAB algorithms for OpenMP/CUDA parallelization
+\begin{minipage}{0.65\textwidth}
+Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia CUDA) parallelization. Transported MATLAB algorithms to Python.  
 \end{minipage}
 }
-\end{minipage}
-\begin{minipage}[t]{0.25\linewidth}
-%\vspace{-13mm}
-\fcolorbox{lightorange}{white}{
+\switchcolumn
+\vspace{5mm}
 \begin{tabular}{lc}
-\tsection{Languages}
-English & Fluent professional \\
-Italiano & Madrelingua \\
-Deutsch & B1, B2 geplänt 03/24 \\
-Français & Bon \\
-\end{tabular}
-}
-\begin{tabular}{lc}
-\tsection{Programming}
+\tsection{Skills}
+\tssection{Programming}
 \tskl{C++}{5}
 \tskl{- C++/Abseil}{5}
 \tskl{- C++/Boost}{4}
@@ -246,7 +219,7 @@ Français & Bon \\
 \tskl{Python}{4}
 \tskl{Julia}{2}
 \tskl{Go}{1}
-\tsection{Tools}
+\tssection{Tools}
 \tskl{BASH}{4}
 \tskl{Linux}{4}
 \tskl{Windows}{3}
@@ -261,15 +234,21 @@ Français & Bon \\
 \tskl{Flamegraph}{2}
 \tskl{Nvidia CUDA}{2}
 \tskl{OpenMP}{3}
-\tsection{Competences}
+\tssection{Competences}
 \tskl{Testing}{5}
 \tskl{Debugging}{4}
 \tskl{DevOps}{4}
 \tskl{Design Docs}{5}
 \tskl{Embedded Dev.}{1}
 \tskl{Agile Dev.}{4}
+\tsection{Languages}
+\tskl{English}{5}
+\tskl{Italiano}{5}
+\tskl{Deutsch}{3}
+\tskl{Français}{3}
 \end{tabular}
-\end{minipage}
+
+\end{paracol}
 
 \pagebreak
 
@@ -294,7 +273,6 @@ Français & Bon \\
 \section{Continuous Learning}
 
 \subsection{Data Science/Analytics}
-\columnratio{0.72}
 \begin{paracol}{2}
 \switchcolumn[0]*
 \BeginCourses

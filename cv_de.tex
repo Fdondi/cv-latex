@@ -1,0 +1,374 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.1 (9/12/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{classic} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{purple} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\usepackage[italian]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{ragged2e}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{datatool}
+\usepackage{paracol}
+
+\definecolor{customTeal}{RGB}{0, 128, 128} % RGB for Teal
+\definecolor{customTurquoise}{RGB}{64, 224, 208} % RGB for Turquoise
+\definecolor{lightGrey}{RGB}{211, 211, 211} % RGB for Light Grey
+\definecolor{lightBlue}{HTML}{79B8CF}
+\definecolor{blueGray}{HTML}{748FB0}
+\definecolor{lightorange}{RGB}{255, 229, 204}
+
+% Alias
+\newcommand{\colorTwo}{blueGray}
+
+
+% Ensure that what displays C#, grabbing the text gets C-<ascii hex-23 = #>
+\newcommand*{\Csh}{C\texttt{\#} }
+
+\newcommand{\repeatsymbol}[2]{%
+ \ifnum#1>0%
+ 	\foreach \n in {1,...,#1}{#2}%
+ \fi%
+}
+
+\newcommand{\skilllevel}[1]{%
+	\repeatsymbol{#1}{\faCircle}\repeatsymbol{\numexpr5-#1\relax}{\faCircle[regular]}%
+}
+
+\newcommand{\skl}[1]{%
+	\textcolor{white}{#1}% Still presents just the number to document text grab/copy
+	\textcolor{\colorTwo}{\skilllevel{#1}}%
+}
+
+\usepackage[scale=0.9, top=2cm, bottom=2cm, left=0.7cm, right=0.7cm]{geometry} % Reduce document margins
+\setlength{\hintscolumnwidth}{4cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Francesco} % Your first name
+\familyname{Dondi} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+\title{\small Der Garant für Erfahrung, die Begeisterung für gute Technik.
+  \\[1em] \color{black}{Neueste Version dieses Lebenslaufs bei: \href{https://github.com/Fdondi/cv-latex/blob/main/cv_de.pdf}{github.com/Fdondi/cv-latex/blob/main/cv\_de.pdf}}}
+\email{francesco314@gmail.com}
+\mobile{+41 76 456 50 32}
+\social[linkedin]{francesco-dondi}
+\social[github]{Fdondi}
+\address{Zugerstarsse 66, 8810 Horgen, ZH}
+\extrainfo{\color{lightgray}\raisebox{3mm}{\rule{5cm}{0.4pt}} \\[-0.9em] Geboren 29.10.1990 \\ Italienischer Staatsbürger, C-Ausweis \\
+Verheiratet, keine Kinder}
+\photo[100pt][0pt]{me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+
+%----------------------------------------------------------------------------------------
+
+% Store the old definition of \makecvtitle
+\let\oldmakecvtitle\makecvtitle
+
+% Redefine \makecvtitle based on the old definition
+\renewcommand*{\makecvtitle}{%
+  \hfil% push content to the right
+  \oldmakecvtitle%
+}
+
+\newcommand{\ToolList}[1]{
+\hfill
+\begin{minipage}[t]{0.15\textwidth}
+{\tiny
+  \begin{itemize}
+    \setlength\itemsep{-0.3em}
+    #1
+  \end{itemize}
+}
+\end{minipage}
+}
+
+\newcommand{\tsection}[1]{%
+	\ & \ \\	
+	\textcolor{color1}{\Large{#1}} & \\%
+}
+
+\newcommand{\tssection}[1]{%
+	\textcolor{color1}{#1} & \\%
+}
+
+\newcommand{\tskl}[2]{%
+	#1 & \skl{#2} \\
+} 
+
+\newcommand{\Company}[1]{%
+\textcolor{\colorTwo}{\textbf{\large #1}}
+}
+
+\begin{document}
+
+\makecvtitle % Print the CV title
+\vspace{-3em}
+\columnratio{0.75}
+\begin{paracol}{2}
+\section{Wer ich bin}
+Als erfahrener Softwareentwickler bringe ich umfangreiche Erfahrungen in der Entwicklung robuster Softwarelösungen, der Optimierung von SQL-Datenbanken und der Implementierung effektiver Datenanalysen mit. Meine Fachkenntnisse reichen von der Sicherung und Verbesserung von Serverkonfigurationen bis hin zur Entwicklung anspruchsvoller Softwarelösungen von Anfang bis Ende. Unter meinen Kollegen und Vorgesetzten bin ich bekannt als zuverlässig, intelligent und freundlich, jemand, der immer bereit ist, Verantwortung zu übernehmen und zum Erfolg des Teams beizutragen.
+
+\section{Berufserfahrung}
+\cventry{03/2023 - 09/2023 \ \Company{DoubleCloud} \ Unternehmensgröße: 50-100}{Softwareentwickler}{}{Zürich}{}{
+\noindent
+\begin{minipage}{0.65\textwidth}
+Wartung und Entwicklung der Infrastruktur um Managed ClickHouse, insbesondere:
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item Absicherung des Metrikenservers durch Hinzufügen von Nginx
+\item Verbesserung der SaltStack-Konfiguration
+\item Fehlerbehebung in Telegraf Go-Plugins
+\end{itemize}
+\end{minipage}
+}
+
+\cventry{06/2021 - 09/2022 \ \Company{Firebolt} \ Unternehmensgröße: 50-100}{Software Developer}{}{Zürich}{}{
+\noindent
+\begin{minipage}{0.65\textwidth}
+Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item Erweiterung der unterstützten SQL-Syntax und Optimierungen
+\item Überarbeitung des Testframeworks zur Unterstützung neuer Testreihen
+\item Beitrag zur Neuschreibung des Optimierungsmotors
+\end{itemize}
+\end{minipage}
+}
+
+\cventry{08/2020 - 02/2021 \ \Company{F-Trust} \ Unternehmensgröße: 5}{Developer / Analyst}{}{Zug}{}{
+\noindent
+\begin{minipage}{0.65\textwidth}
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item Wartung und Entwicklung eines Handelsmotors (C++)
+\item Neugestaltung, Implementierung und Migration der Speicherung
+\item Extraktion und Integration von Daten aus mehreren Log-Streams
+\item Datenanalyse zur Hervorhebung von Verbesserungsmöglichkeiten
+\end{itemize}
+\end{minipage}
+}
+
+\cventry{10/2017 - 05/2020 \ \Company{Google} \ Unternehmensgröße: 100.000}{Software Developer}{}{Zürich}{}{
+\noindent
+\begin{minipage}{0.65\textwidth}
+Im Bereich Suche, Produktivsetzung eines ursprünglich experimentellen Tools (C++).
+\begin{itemize}
+\setlength\itemsep{-0.3em}
+\item Verbesserung der Laufzeit von Tagen auf Stunden
+\item Unterstützung für neue Datentypen hinzugefügt
+\item Ergebnisse leicht visualisierbar und überwachbar gemacht
+\item Onboarding oft um Größenordnungen beschleunigt
+\end{itemize}
+\end{minipage}
+}
+
+\cventry{04/2016 - 10/2017 \ \Company{Ascent Software}\ Unternehmensgröße: 50-100}{Software Developer}{}{Luqa, Malta}{}{
+\noindent
+\begin{minipage}{0.65\textwidth}
+Ich half bei der Wartung und Entwicklung eines Treibers (C++) für die Kommunikation in der Automobilindustrie, der sowohl auf regulären Computern als auch auf eingebetteten Systemen (QNX-Echtzeitbetriebssystem) lief.
+\end{minipage}
+}
+
+\cventry{04/2015 - 04/2016 \ \Company{Rulex Inc.}/\Company{CNR}\ Unternehmensgröße: 5}{Junior Developer}{}{Genua, Italien}{}{
+\noindent
+\begin{minipage}{0.65\textwidth}
+Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (OpenMP) und GPU (Nvidia CUDA) Parallelisierung. Übertragung von MATLAB-Algorithmen nach Python.
+\end{minipage}
+}
+
+\switchcolumn
+\begin{tabular}{lc}
+\tsection{Fähigkeiten}
+\tssection{Programmierung}
+\tskl{C++}{5}
+\tskl{- C++/Abseil}{5}
+\tskl{- C++/Boost}{4}
+\tskl{Java}{2}
+\tskl{SQL}{5}
+\tskl{- Clickhouse SQL}{5}
+\tskl{- PostgreSQL}{4}
+\tskl{Python}{4}
+\tskl{Julia}{2}
+\tskl{Go}{1}
+\tssection{Werkzeuge}
+\tskl{BASH}{4}
+\tskl{Linux}{4}
+\tskl{Windows}{3}
+\tskl{Visual Studio}{2}
+\tskl{AWS storage}{2}
+\tskl{Docker}{3}
+\tskl{Git}{5}
+\tskl{Jenkins CI}{3}
+\tskl{SSH}{3}
+\tskl{VIM}{3}
+\tskl{Valgrind}{3}
+\tskl{Flamegraph}{2}
+\tskl{Kafka}{1}
+\tskl{gRPC}{3}
+\tskl{Nvidia CUDA}{2}
+\tskl{OpenMP}{3}
+\tssection{Kompetenzen}
+\tskl{Testing}{5}
+\tskl{Debugging}{4}
+\tskl{DevOps}{4}
+\tskl{Design Docs}{5}
+\tskl{Embedded Dev.}{1}
+\tskl{Agile Dev.}{4}
+\tsection{Sprachen}
+\tskl{English}{5}
+\tskl{Italiano}{5}
+\tskl{Deutsch}{3}
+\tskl{Français}{3}
+\end{tabular}
+
+\end{paracol}
+
+\pagebreak
+
+\section{Formelle Bildung}
+
+\cventry{2023 H1}{\href{https://execed-online.imperial.ac.uk/business-analytics}{Business Analytics: From Data to Decisions}}{Imperial College Business School}{}{}{}
+\cventry{2009--2015}{\href{http://www.unipd-scuolagalileiana.it/en/}{Galileian School of Higher Education}}{University of Padua}{Universitätsniveau Bereicherungsprogramm für begabte Studierende}{\textit{98/100}}{}
+\cventry{2012--2014}{Master Degree in Mathematics}{University of Padua}{}{\textit{108/110}}{}
+\cventry{2009--2012}{Bachelor Degree in Mathematics}{University of Padua}{}{\textit{110/110 cum Laude}}{}
+\cventry{2004--2009}{High School - Science Track, added IT, French}{Liceo Fermi}{Bologna}{\textit{100/100 cum Laude}}{}
+
+\newcommand{\BeginCourses}{%
+	\begin{tabular}{r@{\hspace{1em}}c@{\hspace{1em}}p{0.5\textwidth}}
+}
+\newcommand{\EndCourses}{\end{tabular}}
+
+\newcommand{\Course}[3]{%
+\hspace{1.5em} #1 & \textit{#3} & \textbf{#2} \\
+}
+
+
+\section{Weiterbildung}
+
+\subsection{Datenwissenschaft/Analytik}
+\begin{paracol}{2}
+\switchcolumn[0]*
+\BeginCourses
+\Course{Nov 2023}{Data Fluency: Exploring and Describing Data}{Linkedin}
+\Course{Nov 2023}{Power BI Essential Training}{Linkedin}
+\Course{Oct 2023}{Business Intelligence for Consultants}{Linkedin}
+\Course{Oct 2023}{Data Analytics for Business Professionals}{Linkedin}
+\Course{Oct 2023}{Excel: Economic Analysis and Data Analytics}{Linkedin}
+\Course{Oct 2023}{The Non-Technical Skills of Effective Data Scientists}{Linkedin}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{Data Analysis}{3}
+\tskl{Data Visualization}{4}
+\tskl{Probability}{4}
+\tskl{Microsoft Power BI}{2}
+\tskl{Microsoft Excel}{5}
+\tskl{Pandas}{4}
+\end{tabular}
+\end{paracol}
+
+\subsection{Programmiersprachen}
+\begin{paracol}{2}
+\BeginCourses
+\Course{Nov 2023}{\Csh Essential Training 1: Types and Control Flow}{Linkedin}
+\Course{Oct 2023}{Learning MATLAB}{Linkedin}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{\Csh}{2}
+\tskl{MATLAB}{3}
+\end{tabular}
+\end{paracol}
+
+\subsection{Embedded-Entwicklung}
+\begin{paracol}{2}
+\BeginCourses
+\Course{Nov 2023}{C Programming for Embedded Applications}{Linkedin}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{C Embedded}{3}
+\end{tabular}
+\end{paracol}
+\subsection{Cloud und DevOps}
+\begin{paracol}{2}
+\BeginCourses
+\Course{Feb 2023}{AWS Certified Solutions Architect - Associate (SAA-C02) Cert Prep: 1 Cloud Services Overview}{Linkedin}
+\Course{Jan 2023}{DevOps Foundations: Going Cloud Native}{Linkedin}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{Cloud Admin}{3}
+\tskl{AWS Cloud}{4}
+\tskl{DevOps}{3}
+\end{tabular}
+\end{paracol}
+
+\newcommand{\Project}[5]{
+\hspace{-1em}\raisebox{\dimexpr\ht\strutbox-\height}{\includegraphics[width=0.12\textwidth]{#1}} & #2 & \textbf{#3} \newline \href{http://#4}{\textcolor{blueGray}{#4}} \newline #5 \\ 
+}
+
+\section{Projekte}
+
+\subsection{Embedded}
+\begin{paracol}{2}
+\BeginCourses
+\Project{arduino_btc_project.jpg}{Nov 2023}{BTC Arduino monitor}{github.com/Fdondi/arduino-btc}{Ein Bot überprüft die Bitcoin-Preise und blinkt mit einer grünen LED, wenn der Preis über dem Durchschnitt liegt, und rot, wenn er darunter liegt. Die Blinkgeschwindigkeit hängt vom Ausmaß der Änderung ab.}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{C++ Embedded}{3}
+\tskl{Arduino}{2}
+\tskl{SSH embedded}{1}
+\tskl{Embedded Development}{2}
+\end{tabular}
+\end{paracol}
+
+\subsection{LLMs / Prompt engineering}
+\begin{paracol}{2}
+\BeginCourses
+\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{Ein CustomGPT benötigt ein Wort und bietet Grammatik, Erklärungen auf Deutsch und Englisch, Anwendungsbeispiele und ein abschließendes Bild, das das Konzept visualisiert. Klärt mehrdeutige oder falsch geschriebene Wörter und kann alle Zweifel des Benutzers klären. Kann das Deutschniveau sowohl automatisch als auch auf Anfrage anpassen.}
+\EndCourses
+\switchcolumn
+\begin{tabular}{p{3cm}c}
+\tskl{AI UX}{3}
+\tskl{Prompt engineering}{3}
+\end{tabular}
+\end{paracol}
+
+\section{Hobbys und Interessen}
+
+Hobbys: Lesen, Wandern, Radfahren, Schwimmen.
+
+\end{document}

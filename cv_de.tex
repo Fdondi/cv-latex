@@ -112,9 +112,13 @@ Verheiratet, keine Kinder}
 \end{minipage}
 }
 
+\newcommand{\mysection}[1]{%
+\textcolor{color1}{\Large{#1}}%
+}
+
 \newcommand{\tsection}[1]{%
-	\ & \ \\	
-	\textcolor{color1}{\Large{#1}} & \\%
+	\ & \ \\	%
+	\mysection{#1} & \\%
 }
 
 \newcommand{\tssection}[1]{%
@@ -143,6 +147,7 @@ Als erfahrener Softwareentwickler bringe ich umfangreiche Erfahrungen in der Ent
 \noindent
 \begin{minipage}{0.65\textwidth}
 Wartung und Entwicklung der Infrastruktur um Managed ClickHouse, insbesondere:
+\\[-1.8em]
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item Absicherung des Metrikenservers durch Hinzufügen von Nginx
@@ -156,6 +161,7 @@ Wartung und Entwicklung der Infrastruktur um Managed ClickHouse, insbesondere:
 \noindent
 \begin{minipage}{0.65\textwidth}
 Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
+\\[-1.8em]
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item Erweiterung der unterstützten SQL-Syntax und Optimierungen
@@ -182,6 +188,7 @@ Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
 \noindent
 \begin{minipage}{0.65\textwidth}
 Im Bereich Suche, Produktivsetzung eines ursprünglich experimentellen Tools (C++).
+\\[-1.8em]
 \begin{itemize}
 \setlength\itemsep{-0.3em}
 \item Verbesserung der Laufzeit von Tagen auf Stunden
@@ -208,7 +215,7 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 
 \switchcolumn
 \begin{tabular}{lc}
-\tsection{Fähigkeiten}
+\tsection{Skills}
 \tssection{Programmierung}
 \tskl{C++}{5}
 \tskl{- C++/Abseil}{5}
@@ -245,17 +252,18 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 \tskl{Embedded Dev.}{1}
 \tskl{Agile Dev.}{4}
 \tsection{Sprachen}
-\tskl{English}{5}
-\tskl{Italiano}{5}
+\tskl{Englisch}{5}
+\tskl{Italienisch}{5}
 \tskl{Deutsch}{3}
-\tskl{Français}{3}
+\tskl{Französisch}{3}
 \end{tabular}
 
 \end{paracol}
 
 \pagebreak
 
-\section{Formelle Bildung}
+\section{Ausbildung}
+
 
 \cventry{2023 H1}{\href{https://execed-online.imperial.ac.uk/business-analytics}{Business Analytics: From Data to Decisions}}{Imperial College Business School}{}{}{}
 \cventry{2009--2015}{\href{http://www.unipd-scuolagalileiana.it/en/}{Galileian School of Higher Education}}{University of Padua}{Universitätsniveau Bereicherungsprogramm für begabte Studierende}{\textit{98/100}}{}
@@ -272,8 +280,12 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 \hspace{1.5em} #1 & \textit{#3} & \textbf{#2} \\
 }
 
-
+\begin{paracol}{2}
 \section{Weiterbildung}
+\switchcolumn
+\vspace{1.5em}
+\mysection{Skills}
+\end{paracol}
 
 \subsection{Datenwissenschaft/Analytik}
 \begin{paracol}{2}
@@ -368,6 +380,6 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 
 \section{Hobbys und Interessen}
 
-Hobbys: Lesen, Wandern, Radfahren, Schwimmen.
+Lesen, Wandern, Radfahren, Schwimmen.
 
 \end{document}

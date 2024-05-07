@@ -1,5 +1,5 @@
-cv_en.aux
-cv_en.log
-cv_en.out
-cv_en.synctex.gz
+*.aux
+*.log
+*.out
+*.synctex.gz
 desktop.ini

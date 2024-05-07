@@ -45,6 +45,9 @@
 \definecolor{blueGray}{HTML}{748FB0}
 \definecolor{lightorange}{RGB}{255, 229, 204}
 
+\definecolor{boldBlue}{RGB}{25, 25, 100} % MidnightBlue
+\definecolor{quietPurple}{RGB}{175, 145, 200} % Lavender
+
 % Alias
 \newcommand{\colorTwo}{blueGray}
 
@@ -122,7 +125,7 @@ Verheiratet, keine Kinder}
 }
 
 \newcommand{\tssection}[1]{%
-	\textcolor{color1}{#1} & \\%
+	\textcolor{quietPurple}{\textbf{#1}} & \\%
 }
 
 \newcommand{\tskl}[2]{%
@@ -130,7 +133,11 @@ Verheiratet, keine Kinder}
 } 
 
 \newcommand{\Company}[1]{%
-\textcolor{\colorTwo}{\textbf{\large #1}}
+\textcolor{boldBlue}{\textbf{\large #1}}
+}
+
+\newcommand{\Location}[1]{%
+\textcolor{quietPurple}{\textbf{#1}}
 }
 
 \begin{document}
@@ -140,10 +147,20 @@ Verheiratet, keine Kinder}
 \columnratio{0.75}
 \begin{paracol}{2}
 \section{Wer ich bin}
-Als erfahrener Softwareentwickler bringe ich umfangreiche Erfahrungen in der Entwicklung robuster Softwarelösungen, der Optimierung von SQL-Datenbanken und der Implementierung effektiver Datenanalysen mit. Meine Fachkenntnisse reichen von der Sicherung und Verbesserung von Serverkonfigurationen bis hin zur Entwicklung anspruchsvoller Softwarelösungen mit umfassender Beteiligung in allen Phasen des Softwareentwicklungsprozesses. Bei meinen Kollegen und Vorgesetzten bin ich bekannt als zuverlässig, intelligent und freundlich, jemand, der immer bereit ist, Verantwortung zu übernehmen und zum Erfolg des Teams beizutragen.
+
+Als erfahrener Softwareentwickler beherrsche ich die Entwicklung robuster Softwarelösungen, SQL-Datenbankoptimierung und effektive Datenanalyse. Von der Sicherung von Serverkonfigurationen bis zur Entwicklung komplexer Softwarelösungen bin ich in allen Entwicklungsphasen engagiert. Kollegen schätzen meine Zuverlässigkeit, Intelligenz und Teamfähigkeit.
 
 \section{Berufserfahrung}
-\cventry{03/2023 - 09/2023 \ \Company{DoubleCloud} \ Unternehmensgröße: 50-100}{Softwareentwickler}{}{Zürich}{}{
+\cventry{03/2023 - 05/2024 \\ \Location{Winterthur} \\ Company size: 3}{Software Developer}{}{\Company{Deep Impact}}{}{
+\noindent
+\begin{minipage}{0.65\textwidth}
+Diagnostizierte und korrigierte falsche Dokumentwiederherstellung.
+Diagnostizierte und geminderte langsame Startvorgänge.
+Überarbeitete Docker-Organisation.
+\end{minipage}
+}
+
+\cventry{03/2023 - 09/2023 \ \Location{Zürich} \ Unternehmensgröße: 50-100}{Softwareentwickler}{}{\Company{DoubleCloud}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Wartung und Entwicklung der Infrastruktur um Managed ClickHouse, insbesondere:
@@ -157,7 +174,7 @@ Wartung und Entwicklung der Infrastruktur um Managed ClickHouse, insbesondere:
 \end{minipage}
 }
 
-\cventry{06/2021 - 09/2022 \ \Company{Firebolt} \ Unternehmensgröße: 50-100}{Software Developer}{}{Zürich}{}{
+\cventry{06/2021 - 09/2022 \ \Location{Zürich} \ Unternehmensgröße: 50-100}{Software Developer}{}{\Company{Firebolt}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
@@ -171,7 +188,7 @@ Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
 \end{minipage}
 }
 
-\cventry{08/2020 - 02/2021 \ \Company{F-Trust} \ Unternehmensgröße: 5}{Developer / Analyst}{}{Zug}{}{
+\cventry{08/2020 - 02/2021 \ \Location{Zug} \ Unternehmensgröße: 5}{Developer / Analyst}{}{\Company{F-Trust}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 \begin{itemize}
@@ -184,7 +201,7 @@ Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
 \end{minipage}
 }
 
-\cventry{10/2017 - 05/2020 \ \Company{Google} \ Unternehmensgröße: 100.000}{Software Developer}{}{Zürich}{}{
+\cventry{10/2017 - 05/2020 \ \Location{Zürich} \ Unternehmensgröße: 100.000}{Software Developer}{}{\Company{Google}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Im Bereich Suche, ein ursprünglich experimentelles Tool in den produktiven Einsatz überführt (C++).
@@ -199,14 +216,14 @@ Im Bereich Suche, ein ursprünglich experimentelles Tool in den produktiven Eins
 \end{minipage}
 }
 
-\cventry{04/2016 - 10/2017 \ \Company{Ascent Software}\ Unternehmensgröße: 50-100}{Software Developer}{}{Luqa, Malta}{}{
+\cventry{04/2016 - 10/2017 \ \Location{Luqa, Malta} \ Unternehmensgröße: 50-100}{Software Developer}{}{\Company{Ascent Software}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Bei der Wartung und Entwicklung eines Treibers (C++) für die Kommunikation in der Automobilindustrie, der sowohl auf regulären Computern als auch auf eingebetteten Systemen (QNX-Echtzeitbetriebssystem) lief.
 \end{minipage}
 }
 
-\cventry{04/2015 - 04/2016 \ \Company{Rulex Inc.}/\Company{CNR}\ Unternehmensgröße: 5}{Junior Developer}{}{Genua, Italien}{}{
+\cventry{04/2015 - 04/2016 \ \Location{Genua, Italien} \ Unternehmensgröße: 5}{Junior Developer}{}{\Company{Rulex Inc.}/\Company{CNR}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (OpenMP) und GPU (Nvidia CUDA) Parallelisierung. Übertragung von MATLAB-Algorithmen nach Python.
@@ -216,7 +233,7 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 \switchcolumn
 \begin{tabular}{lc}
 \tsection{Skills}
-\tssection{Programmierung}
+\tssection{Programming}
 \tskl{C++}{5}
 \tskl{- C++/Abseil}{5}
 \tskl{- C++/Boost}{4}
@@ -227,35 +244,37 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 \tskl{Python}{4}
 \tskl{Julia}{2}
 \tskl{Go}{1}
-\tssection{Werkzeuge}
+\tssection{Universal Tools}
 \tskl{BASH}{4}
+\tskl{SSH}{3}
+\tskl{VIM}{3}
 \tskl{Linux}{4}
 \tskl{Windows}{3}
 \tskl{Visual Studio}{2}
-\tskl{AWS storage}{2}
-\tskl{Docker}{3}
 \tskl{Git}{5}
 \tskl{Jenkins CI}{3}
-\tskl{SSH}{3}
-\tskl{VIM}{3}
+\tssection{Advanced Tools}
+\tskl{AWS}{3}
+\tskl{Docker}{4}
+\tskl{gRPC}{3}
+\tskl{ZeroMQ}{1}
 \tskl{Valgrind}{3}
 \tskl{Flamegraph}{2}
-\tskl{Kafka}{1}
-\tskl{gRPC}{3}
+\tskl{Gstreamer}{1}
 \tskl{Nvidia CUDA}{2}
 \tskl{OpenMP}{3}
-\tssection{Kompetenzen}
+\tssection{Competences}
 \tskl{Testing}{5}
 \tskl{Debugging}{4}
 \tskl{DevOps}{4}
 \tskl{Design Docs}{5}
 \tskl{Embedded Dev.}{1}
 \tskl{Agile Dev.}{4}
-\tsection{Sprachen}
-\tskl{Englisch}{5}
-\tskl{Italienisch}{5}
+\tsection{Languages}
+\tskl{English}{5}
+\tskl{Italiano}{5}
 \tskl{Deutsch}{3}
-\tskl{Französisch}{3}
+\tskl{Français}{3}
 \end{tabular}
 
 \end{paracol}
@@ -264,12 +283,12 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 
 \section{Ausbildung}
 
-
-\cventry{2023 H1}{\href{https://execed-online.imperial.ac.uk/business-analytics}{Business Analytics: From Data to Decisions}}{Imperial College Business School}{}{}{}
-\cventry{2009--2015}{\href{http://www.unipd-scuolagalileiana.it/en/}{Galileian School of Higher Education}}{University of Padua}{Universitätsniveau Bereicherungsprogramm für begabte Studierende}{\textit{98/100}}{}
-\cventry{2012--2014}{Master Degree in Mathematics}{University of Padua}{}{\textit{108/110}}{}
-\cventry{2009--2012}{Bachelor Degree in Mathematics}{University of Padua}{}{\textit{110/110 cum Laude}}{}
-\cventry{2004--2009}{High School - Science Track, added IT, French}{Liceo Fermi}{Bologna}{\textit{100/100 cum Laude}}{}
+\cventry{02/2024--10/2024 (exp.)\hfill}{\href{https://sce.ethz.ch/en/programmes-and-courses/search-current-courses/cas/cas-eth-ml-fin-ins.html}{CAS ETH in Machine Learning in Finance and Insurance}}{ETH Zürich}{}{}{}
+\cventry{01/2023--06/2023 \hfill}{\href{https://execed-online.imperial.ac.uk/business-analytics}{Business Analytics: From Data to Decisions}}{Imperial College Business School}{}{}{}
+\cventry{2009--2015\hfill}{\href{http://www.unipd-scuolagalileiana.it/en/}{Galileian School of Higher Education}}{University of Padua}{Bereicherungsprogramm}{\textit{98/100}}{}
+\cventry{2012--2014\hfill}{Master Degree in Mathematics}{University of Padua}{}{\textit{108/110}}{}
+\cventry{2009--2012\hfill}{Bachelor Degree in Mathematics}{University of Padua}{}{\textit{110/110 cum Laude}}{}
+\cventry{2004--2009\hfill}{High School - Science Track, added IT, French}{Liceo Fermi}{Bologna}{\textit{100/100 cum Laude}}{}
 
 \newcommand{\BeginCourses}{%
 	\begin{tabular}{r@{\hspace{1em}}c@{\hspace{1em}}p{0.5\textwidth}}
@@ -381,7 +400,7 @@ Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (Ope
 \subsection{LLMs / Prompt engineering}
 \begin{paracol}{2}
 \BeginCourses
-\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{Ein CustomGPT benötigt ein Wort und bietet Grammatik, Erklärungen auf Deutsch und Englisch, Anwendungsbeispiele und ein abschließendes Bild, das das Konzept visualisiert. Klärt mehrdeutige oder falsch geschriebene Wörter und kann alle Zweifel des Benutzers klären. Kann das Deutschniveau sowohl automatisch als auch auf Anfrage anpassen.}
+\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{Ein CustomGPT wer liefert Wortdefinitionen, Grammatikerklärungen und Anwendungsbeispiele auf Deutsch und Englisch. Es klärt mehrdeutige oder falsch geschriebene Wörter und kann alle Benutzerzweifel beseitigen. Es passt sich automatisch oder auf Anfrage dem Deutschniveau an.}
 \EndCourses
 \switchcolumn
 \begin{tabular}{p{3cm}c}

@@ -138,6 +138,10 @@ Married, no children}
 \textcolor{quietPurple}{\textbf{#1}}
 }
 
+\newenvironment{compactitemize}
+  {\vspace{-0.5em}\begin{itemize}\setlength{\itemsep}{-0.3em}\setlength{\parskip}{0pt}}
+  {\end{itemize}}
+
 \begin{document}
 
 \makecvtitle % Print the CV title
@@ -158,60 +162,57 @@ Contributed by overhauling Docker setup and solving bugs.
 }
 
 
-\cventry{03/2023 - 09/2023 \\ \Location{Zürich} \\ Company size: 50-100}{Software Developer}{}{\Company{DoubleCloud}}{}{
+\cventry{03/2023 - 09/2023 \\ \Location{Zürich} \\ Company size: ~50}{Software Developer}{}{\Company{DoubleCloud}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Maintained and developed the infrastructure around managed ClickHouse, in particular:
-\begin{itemize}
-\setlength\itemsep{-0.3em}
+\begin{compactitemize}
 \item Secured metrics server by adding Nginx
 \item Improved SaltStack configuration
 \item Solved bugs in Telegraf Go plugins
-\end{itemize}
+\end{compactitemize}
 \end{minipage}
 }
 
-\cventry{06/2021 - 09/2022 \\ \Location{Zürich} \\ Company size: 50-100}{Software Developer}{}{\Company{Firebolt}}{}{
+\cventry{06/2021 - 09/2022 \\ \Location{Zürich} \\ Company size: ~50}{Software Developer}{}{\Company{Firebolt}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Maintained and developed the SQL optimization engine and testing infrastructure.
-\begin{itemize}
-\setlength\itemsep{-0.3em}
+\begin{compactitemize}
 \item Expanded supported SQL syntax and optimizations
 \item reworked the test framework to support new test suite
 \item contributed to rewriting to higher standards the optimization engine 
-\end{itemize}
+\end{compactitemize}
 \end{minipage}
 }
 
 \cventry{08/2020 - 02/2021 \\ \Location{Zug} \\ Company size: 5}{Developer / Analyst}{}{\Company{F-Trust}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
-\begin{itemize}
-\setlength\itemsep{-0.3em}
+\begin{compactitemize}
 \item Maintained and developed a Trading Engine (C++)
 \item redesigned, implemented and migrated storage (PostgreSQL)
 \item extracted and integrated data from multiple log streams
 \item analyzed data to highlight opportunities for improvement (Julia)
-\end{itemize}
+\end{compactitemize}
 \end{minipage}
 }
 
-\cventry{10/2017 - 05/2020 \\ \Location{Zürich} \\ Company size: 100.000}{Software Developer}{}{\Company{Google}}{}{
+\cventry{10/2017 - 05/2020 \\ \Location{Zürich} \\ Company size: 100k}{Software Developer}{}{\Company{Google}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 Within Search, productionized an initially experimental tool (C++).
-\begin{itemize}
+\begin{compactitemize}
 \setlength\itemsep{-0.3em}
 \item Improved runtime from days to hours
 \item added support for new kinds of data
 \item made the results easily visualizable and monitorable
 \item made onboarding orders of magnitude faster for most cases
-\end{itemize}
+\end{compactitemize}
 \end{minipage}
 }
 
-\cventry{04/2016 - 10/2017 \\ \Location{Luqa, Malta} \\ Company size: 50-100}{Software Developer}{}{\Company{Ascent Software}}{}{
+\cventry{04/2016 - 10/2017 \\ \Location{Luqa, Malta} \\ Company size: ~50 }{Software Developer}{}{\Company{Ascent Software}}{}{
 \noindent
 \begin{minipage}{0.65\textwidth}
 I helped maintain and develop a driver (C++) for automotive communications, running both on regular computers and embedded (QNX real-time OS) systems.

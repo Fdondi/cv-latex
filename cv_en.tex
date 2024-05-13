@@ -117,9 +117,13 @@ Married, no children}
 \end{minipage}
 }
 
+\newcommand{\mysection}[1]{%
+	\textcolor{color1}{\Large{#1}}%
+}
+
 \newcommand{\tsection}[1]{%
 	\ & \ \\	
-	\textcolor{color1}{\Large{#1}} & \\%
+	\mysection{#1} & \\%
 }
 
 \newcommand{\tssection}[1]{%
@@ -380,7 +384,7 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \subsection{Embedded}
 \begin{paracol}{2}
 \BeginCourses
-\Project{arduino_btc_project.jpg}{Nov 2023}{BTC Arduino monitor}{github.com/Fdondi/arduino-btc}{A bot checking Bitcoin prices and blinking a green led if the price is above average, red if below. The speed of blinking depends on the magnitude of the change.}
+\Project{arduino_btc_project.jpg}{Nov 2023}{BTC Arduino monitor}{github.com/Fdondi/arduino-btc}{Board blinking green for increased bitcoin pirce, red for decrease. Blinks faster for fast price change.}
 \EndCourses
 \switchcolumn
 \begin{tabular}{p{3cm}c}
@@ -394,7 +398,7 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \subsection{LLMs / Prompt engineering}
 \begin{paracol}{2}
 \BeginCourses
-\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{A CustomGPT, takes one word and provides grammar, explanation in German and English, examples of use, and a final image visualizing the concept. Clarifies ambiguous or misspelled words, can discuss any user doubt. Can adjust German level used both automatically and on request.}
+\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{CustomGPT for grammar, explanation in German and English, examples. Clarifies ambiguous words. Adjusts German level.}
 \EndCourses
 \switchcolumn
 \begin{tabular}{p{3cm}c}
@@ -403,8 +407,20 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \end{tabular}
 \end{paracol}
 
-\section{Personal}
+\begin{paracol}{2}
+\section{Competitions}
 
-Hobbies: Reading, hiking, biking, swimming.
+\cventry{2009}{Italian Olympics of Mathematics}{Gold \includegraphics[width=0.6em]{gold.png}}{}{}{}{}
+\cventry{2008}{Italian Olympics of Information Technology}{Bronze  \includegraphics[width=0.7em]{bronze.png}}{}{}{}{}
+\cventry{12-13/12/15}{H-Farm}{H-Ack Luxottica}{Ideas for the future of glasses.}{}{}{}
+\cventry{19-20/03/16}{H-Farm}{H-Ack Food}{Reinventing the ’Bio food’ experience.}{}{}{}
+
+\switchcolumn
+\vspace{1.3em}
+\mysection{Personal}
+\\ 
+Hobbies:\\ Read, hike, bike, swim.
+
+\end{paracol}
 
 \end{document}

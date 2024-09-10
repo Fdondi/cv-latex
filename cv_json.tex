@@ -1,0 +1,186 @@
+% moderncv package
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{classic} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{purple} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+% moderncv data
+
+\firstname{Francesco} % Your first name
+\familyname{Dondi} % Your last name
+
+\title{\small The guarantee of experience, the enthusiasm for good engineering. 
+ \\[1em] \color{black}{Latest version of this CV at: \textcolor{blueGray}{\href{https://github.com/Fdondi/cv-latex/blob/main/cv_en.pdf}{github.com/Fdondi/cv-latex/blob/main/cv\_en.pdf}}}
+ \\[1em] \color{black}{Online (React) version of this CV at: \textcolor{blueGray}{\href{https://fdondi.github.io/cv-react/}{https://fdondi.github.io/cv-react/}}}}
+\email{francesco314@gmail.com}
+\mobile{+41 76 456 50 32}
+\social[linkedin]{francesco-dondi}
+\social[github]{Fdondi}
+\address{Zugerstarsse 66, 8810 Horgen, ZH}
+\extrainfo{\color{lightgray}\raisebox{3mm}{\rule{5cm}{0.4pt}} \\[-0.9em] Born 29/10/1990 \\ Italian citizen, C permit \\
+Married, no children}
+\photo[80pt][0pt]{me.jpg} % The first bracket is the picture height, the second is the thickness of the frame around the picture (0pt for no frame)
+
+% colors
+\definecolor{blueGray}{HTML}{748FB0}
+
+% json packages
+\usepackage{pgffor}
+\usepackage{pgfkeys}
+\usepackage{catchfile}
+\usepackage{ifthen}
+
+% read JSON files:
+
+\newcommand{\readjsonfile}[1]{%
+  \CatchFileDef{\jsondata}{#1}{}%
+  \StrSubstitute{\rawjsondata}{"}{"}[\tempjsondata]%
+  \StrSubstitute{\tempjsondata}{\string\n}{\\}[\jsondata]%
+}
+
+% parse JSON data:
+
+\newcommand{\parsejsonarray}[2]{%
+  \def\jsonarray{#2}%
+  \foreach \item in \jsonarray {#1}%
+}
+
+\newcommand{\getjsonvalue}[2]{%
+  \pgfkeys{/json/.cd,#2}%
+  \pgfkeys{/json/.cd,#1/.get=\jsonvalue}%
+}
+
+% commands for each section:
+
+\newcommand{\printExperiences}{%
+  \readjsonfile{experiences.json}%
+  \parsejsonarray{\parseExperience}{{\jsondata}}%
+}
+
+\newcommand{\parseExperience}[1]{%
+  \pgfkeys{/json/.cd,
+    period/.initial={},
+    location/.initial={},
+    companySize/.initial={},
+    title/.initial={},
+    company/.initial={},
+    description/.initial={},
+    #1
+  }%
+  \getjsonvalue{period}{period}%
+  \getjsonvalue{location}{location}%
+  \getjsonvalue{companySize}{companySize}%
+  \getjsonvalue{title}{title}%
+  \getjsonvalue{company}{company}%
+  \getjsonvalue{description}{description/.get=\descriptionjson}%
+  \cventry{\jsonvalue \\\Location{\pgfkeysvalueof{/json/location}} \\ Company size: \pgfkeysvalueof{/json/companySize}}%
+    {\pgfkeysvalueof{/json/title}}{}{\Company{\pgfkeysvalueof{/json/company}}}{}{%
+    \pgfkeysvalueof{/json/description/en}%
+  }%
+}
+
+\newcommand{\printEducation}{%
+  \readjsonfile{education.json}%
+  \parsejsonarray{\parseEducation}{{\jsondata}}%
+}
+
+\newcommand{\parseEducation}[1]{%
+  \pgfkeys{/json/.cd,
+    date/.initial={},
+    title/.initial={},
+    institution/.initial={},
+    additional/.initial={},
+    #1
+  }%
+  \cventry{\pgfkeysvalueof{/json/date}\hfill}{\pgfkeysvalueof{/json/title}}{\pgfkeysvalueof{/json/institution}}{}{\pgfkeysvalueof{/json/additional}}{}%
+}
+
+\newcommand{\printCourses}{%
+  \readjsonfile{data/courses.json}%
+  \parsejsonarray{\parseCoursesCategory}{{\jsondata}}%
+}
+
+\newcommand{\parseCoursesCategory}[1]{%
+  \pgfkeys{/json/.cd,
+    title/.initial={},
+    courses/.initial={},
+    skills/.initial={},
+    #1
+  }%
+  \subsection{\pgfkeysvalueof{/json/title}}%
+  \begin{paracol}{2}%
+  \BeginCourses%
+  \parsejsonarray{\parseCourse}{\pgfkeysvalueof{/json/courses}}%
+  \EndCourses%
+  \switchcolumn%
+  \begin{tabular}{p{3cm}c}%
+  \parsejsonarray{\parseSkill}{\pgfkeysvalueof{/json/skills}}%
+  \end{tabular}%
+  \end{paracol}%
+}
+
+
+\newcommand{\Course}[3]{%
+\hspace{1.5em} #1 & \textit{#3} & \textbf{#2} \\
+}
+
+\newcommand{\parseCourse}[1]{%
+  \pgfkeys{/json/.cd,
+    date/.initial={},
+    title/.initial={},
+    provider/.initial={},
+    #1
+  }%
+  \Course{\pgfkeysvalueof{/json/date}}{\pgfkeysvalueof{/json/title}}{\pgfkeysvalueof{/json/provider}}%
+}
+
+\newcommand{\parseSkill}[1]{%
+  \pgfkeys{/json/.cd,
+    name/.initial={},
+    level/.initial={},
+    #1
+  }%
+  \tskl{\pgfkeysvalueof{/json/name}}{\pgfkeysvalueof{/json/level}}%
+}
+}
+
+\newcommand{\printCompetitions}{%
+  \readjsonfile{data/competitions.json}%
+  \parsejsonarray{\parseCompetition}{{\jsondata}}%
+}
+
+\newcommand{\parseCompetition}[1]{%
+  \pgfkeys{/json/.cd,
+    when/.initial={},
+    title/.initial={},
+    award/.initial={},
+    description/.initial={},
+    #1
+  }%
+  \cventry{\pgfkeysvalueof{/json/when}}{\pgfkeysvalueof{/json/title}}{\pgfkeysvalueof{/json/award}}{}{\pgfkeysvalueof{/json/description}}{}%
+}
+
+% main document
+
+\begin{document}
+
+\makecvtitle % Print the CV title
+
+\section{Who I am}
+\readjsonfile{experiences.json}
+\pgfkeys{/json/.cd, description/.get=\descriptionjson, {\jsondata}}
+\pgfkeysvalueof{/json/description/en}
+
+\section{2020-current: Startup experiences}
+\printExperiences
+
+\section{Formal education}
+\printEducation
+
+\section{Continuous Learning}
+\printCourses
+
+\section{Competitions}
+\printCompetitions
+
+\end{document}

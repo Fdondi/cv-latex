@@ -1,0 +1,42 @@
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+\usepackage{luacode}
+\usepackage{filecontents}
+\usepackage{fontawesome}
+
+\begin{luacode}
+-- Function to read JSON file and parse it
+function read_json_file(filename)
+  local file = io.open(filename, "r")
+  local content = file:read("*all")
+  file:close()
+  local json = require("cjson")
+  return json.decode(content)
+end
+
+-- Read the JSON file
+local data = read_json_file("data.json")
+
+-- Store data in TeX macros
+tex.sprint("\\def\\name{" .. string.gsub(data.name, "\\char", "\\string\\char") .. "}")
+tex.sprint("\\def\\address{" .. data.address .. "}")
+tex.sprint("\\def\\email{" .. data.email .. "}")
+tex.sprint("\\def\\phone{" .. data.phone .. "}")
+\end{luacode}
+
+% ModernCV theme settings
+\moderncvstyle{classic}
+\moderncvcolor{blue}
+
+\name{\name}
+\address{\address}
+\phone[mobile]{\phone}
+\email{\email}
+
+\begin{document}
+\makecvtitle
+
+\section{Experience}
+\cventry{2023--Present}{Software Developer}{Tech Company}{City}{}{$Description$ of the job and achievements.}
+
+\end{document}

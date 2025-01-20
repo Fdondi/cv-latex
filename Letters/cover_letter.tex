@@ -1,0 +1,77 @@
+\documentclass[11pt,a4paper,sans,expansion=false]{moderncv}
+
+% ModernCV style and color theme
+\moderncvstyle{classic}  % Options: casual, classic, banking, oldstyle, fancy
+\moderncvcolor{purple}     % Options: blue, orange, green, red, purple, grey, black
+
+% Character encoding, font, and packages
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}       % Use Latin Modern fonts
+\usepackage{graphicx}      % For including images
+\usepackage{tikz}          % For positioning elements
+\usepackage{wallpaper}     % for background
+\usepackage[scale=0.85]{geometry}  % Adjust margins
+
+\TileWallPaper{\paperwidth}{\paperheight}{paper.jpg}
+
+% Set up the family crest in the top-left behind personal info
+\newcommand{\familycrest}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[opacity=0.2, anchor=north east, shift={(0cm,-0.5cm)}] at (current page.north east) {\includegraphics[width=5cm]{Dondi.png}};
+  \end{tikzpicture}
+}
+
+% Set up the company logo on the top-right above recipient info
+\newcommand{\companylogo}{%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[opacity=0.7, anchor=north west, shift={(0cm,0cm)}] at (current page.north west) {\includegraphics[width=7cm]{helbling.jpg}};
+  \end{tikzpicture}
+}
+
+% Personal data
+\name{Francesco}{Dondi}
+\title{Cover Letter}
+\address{Zugerstrasse 66}{Horgen, ZH}{8810}
+\phone[mobile]{+41 76 456 50 32}
+\email{francesco314@gmail.com}
+\social[linkedin]{francesco-dondi}
+\social[github]{Fdondi}
+%\extrainfo{Portfolio: \url{https://your-portfolio.com}}
+
+% Begin document
+\begin{document}
+
+% Include the family crest and company logo at the top
+\familycrest
+\companylogo
+
+% Title of the letter
+\recipient{Hiring Manager}{Helbling Technik}
+\date{\today}
+\opening{Sehr geehrtes Team von Helbling Technik,}
+\makelettertitle
+
+% Body of the letter
+mit großem Interesse bewerbe ich mich für die Position als Software \& Data Engineer bei Helbling Technik.
+
+Ich bin sehr an der Tätigkeit von Helbling Technik interessiert. Als unabhängiger F\&E-Auftragnehmer, der ein breites Spektrum an Dienstleistungen von Produktentwicklung und Innovation über Software-, Mechanik- und Elektronikentwicklung bis hin zu Berechnungen und Simulationen anbietet, vertraue ich darauf, dass er ein außergewöhnlich anregendes Umfeld bieten kann. Ich würde mich freuen, meine intellektuellen Fähigkeiten in ein innovatives Team einzubringen, sie konsequent weiterzuentwickeln und spannende Entwicklungsprojekte umzusetzen.
+
+Ich glaube, mein Profil an der Schnittstelle zwischen Programmierung und Datenwissenschaft wäre perfekt für die Stelle.
+
+Ich habe als Mathematiker an der Universität Padua angefangen. Danach habe ich den Großteil meiner Karriere mit Programmierung verbracht; hauptsächlich C++, aber ich habe festgestellt, dass ich problemlos auf C\# umsteigen kann. Ich habe natürlich umfangreiche Erfahrung mit DevOps und Tools wie AWS und Kubernetes.
+
+Ich hatte bereits eine ähnlich hybride Rolle als Softwareentwickler und Quantitative Analyst bei F-Trust inne und es war großartig, meine Fähigkeiten bei verschiedenen Aufgaben wie Programmierung, Strukturierung von SQL-Datenbanken und Bereinigung und Analyse von Daten für Geschäftseinblicke einsetzen zu können.
+
+In den letzten Jahren habe ich erheblich in die Erweiterung meines Horizonts in Richtung Datenwissenschaft investiert; hauptsächlich mit dem Kurs „Business Analytics: Von Daten zu Entscheidungen“ an der Imperial College Business School und dann „CAS in Machine Learning in Finance and Insurance“ an der ETH Zürich. Ich habe diese Semesterkurse mit mehreren kleineren Kursen zu Tableau und PowerBi sowie zu Datenanalyse im Allgemeinen abgerundet. Dank dieser Kompetenzen konnte ich als Senior Machine Learning Engineer bei Giotto AI erfolgreich arbeiten.
+
+Darüber hinaus kenne ich die Funktionsweise von Snowflake von innen: Ich war bei Firebolt, einem Konkurrenten von Snowflake, angestellt, wo ich an der Verbesserung des internen SQL-Optimierers arbeitete.
+
+Ich freue mich darauf, meine Erfahrungen und meine Begeisterung in das Team von Helbling Technik einzubringen und gemeinsam transformative Lösungen zu entwickeln, die die industrielle Innovation vorantreiben. Gerne stehe ich Ihnen für ein weiteres Gespräch oder eine technische Herausforderung zur Verfügung und freue mich darauf, mehr über Ihre Erwartungen an die Position zu erfahren.
+
+Vielen Dank für die Berücksichtigung meiner Bewerbung. Ich freue mich auf die Möglichkeit, einen Beitrag zu Ihrem Unternehmen zu leisten und die Zukunft von Helbling Technik mitzugestalten.
+
+\closing{Mit freundlichen Grüßen, \\ \vspace{2em} \includegraphics[height=3em]{../firma_estesa.jpg}
+\vspace{-7em}}
+\makeletterclosing
+\end{document}

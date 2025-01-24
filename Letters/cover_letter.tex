@@ -25,7 +25,7 @@
 % Set up the company logo on the top-right above recipient info
 \newcommand{\companylogo}{%
   \begin{tikzpicture}[remember picture, overlay]
-    \node[opacity=0.7, anchor=north west, shift={(0cm,0cm)}] at (current page.north west) {\includegraphics[width=7cm]{helbling.jpg}};
+    \node[opacity=0.7, anchor=north west, shift={(0cm,0cm)}] at (current page.north west) {\includegraphics[width=7cm]{company.png}};
   \end{tikzpicture}
 }
 
@@ -47,31 +47,14 @@
 \companylogo
 
 % Title of the letter
-\recipient{Hiring Manager}{Helbling Technik}
+\recipient{Hiring Manager}{<< Company >>}
 \date{\today}
-\opening{Sehr geehrtes Team von Helbling Technik,}
+\opening{Dear Hiring Manager,}
 \makelettertitle
 
-% Body of the letter
-mit großem Interesse bewerbe ich mich für die Position als Software \& Data Engineer bei Helbling Technik.
+Example body
 
-Ich bin sehr an der Tätigkeit von Helbling Technik interessiert. Als unabhängiger F\&E-Auftragnehmer, der ein breites Spektrum an Dienstleistungen von Produktentwicklung und Innovation über Software-, Mechanik- und Elektronikentwicklung bis hin zu Berechnungen und Simulationen anbietet, vertraue ich darauf, dass er ein außergewöhnlich anregendes Umfeld bieten kann. Ich würde mich freuen, meine intellektuellen Fähigkeiten in ein innovatives Team einzubringen, sie konsequent weiterzuentwickeln und spannende Entwicklungsprojekte umzusetzen.
-
-Ich glaube, mein Profil an der Schnittstelle zwischen Programmierung und Datenwissenschaft wäre perfekt für die Stelle.
-
-Ich habe als Mathematiker an der Universität Padua angefangen. Danach habe ich den Großteil meiner Karriere mit Programmierung verbracht; hauptsächlich C++, aber ich habe festgestellt, dass ich problemlos auf C\# umsteigen kann. Ich habe natürlich umfangreiche Erfahrung mit DevOps und Tools wie AWS und Kubernetes.
-
-Ich hatte bereits eine ähnlich hybride Rolle als Softwareentwickler und Quantitative Analyst bei F-Trust inne und es war großartig, meine Fähigkeiten bei verschiedenen Aufgaben wie Programmierung, Strukturierung von SQL-Datenbanken und Bereinigung und Analyse von Daten für Geschäftseinblicke einsetzen zu können.
-
-In den letzten Jahren habe ich erheblich in die Erweiterung meines Horizonts in Richtung Datenwissenschaft investiert; hauptsächlich mit dem Kurs „Business Analytics: Von Daten zu Entscheidungen“ an der Imperial College Business School und dann „CAS in Machine Learning in Finance and Insurance“ an der ETH Zürich. Ich habe diese Semesterkurse mit mehreren kleineren Kursen zu Tableau und PowerBi sowie zu Datenanalyse im Allgemeinen abgerundet. Dank dieser Kompetenzen konnte ich als Senior Machine Learning Engineer bei Giotto AI erfolgreich arbeiten.
-
-Darüber hinaus kenne ich die Funktionsweise von Snowflake von innen: Ich war bei Firebolt, einem Konkurrenten von Snowflake, angestellt, wo ich an der Verbesserung des internen SQL-Optimierers arbeitete.
-
-Ich freue mich darauf, meine Erfahrungen und meine Begeisterung in das Team von Helbling Technik einzubringen und gemeinsam transformative Lösungen zu entwickeln, die die industrielle Innovation vorantreiben. Gerne stehe ich Ihnen für ein weiteres Gespräch oder eine technische Herausforderung zur Verfügung und freue mich darauf, mehr über Ihre Erwartungen an die Position zu erfahren.
-
-Vielen Dank für die Berücksichtigung meiner Bewerbung. Ich freue mich auf die Möglichkeit, einen Beitrag zu Ihrem Unternehmen zu leisten und die Zukunft von Helbling Technik mitzugestalten.
-
-\closing{Mit freundlichen Grüßen, \\ \vspace{2em} \includegraphics[height=3em]{../firma_estesa.jpg}
+\closing{Best Regards, \\ \vspace{2em} \includegraphics[height=3em]{../firma_estesa.jpg}
 \vspace{-7em}}
 \makeletterclosing
 \end{document}

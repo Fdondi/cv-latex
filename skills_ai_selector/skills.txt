@@ -1,0 +1,71 @@
+# Skills
+# Programming
+C++ 5
+- Abseil 5
+- Boost 4
+Python 4
+SQL 5
+- Clickhouse SQL 5
+- PostgreSQL 4
+Java 2
+Julia 2
+Matlab 2
+Go 1
+Rust 1
+# Data Science
+Pandas 4
+Numpy 4
+Grafana 3
+PowerBI 1
+Tableau 1
+# ML
+TensorFlow/Keras 3
+Pytorch 4
+- Lightning 3
+Scikit-learn 3
+Fine-tuning 3
+LoRAs 2
+Deep Learning  2
+Computer Vision 2
+# Platforms
+Linux 4
+AWS 3
+Windows 3
+Nvidia Jetson 2
+# Competences
+Testing 5
+DevOps 4
+Design Docs 5
+Embedded Dev. 1
+Agile Dev. 4
+Problem-Solving 4
+# Universal Tools
+BASH 4
+Git 5
+Jenkins CI 3
+# Advanced Tools
+Docker 4
+Terraform 2
+Kubernetes 2
+Helm 1
+gRPC 3
+ZeroMQ 1
+Valgrind 3
+Flamegraph 2
+Gstreamer 1
+Nvidia CUDA 2
+OpenMP 3
+# Web
+HTML 3
+Javascript 2
+React 1
+Flutter 1
+# Education
+Master in mathematics
+CAS in Machine Learning for Finance and Insurance at ETH 
+Executive Education "From Data to Decision" at Imperial College Business School. 
+# Languages
+English 5
+Italiano 5
+Deutsch 3
+Français 3

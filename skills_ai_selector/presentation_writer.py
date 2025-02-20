@@ -53,4 +53,16 @@ chat_response = client.chat.complete(
     messages = messages
 )
 
-print(chat_response.choices[0].message.content)
+if len(chat_response.choices) > 1:
+    for i, choice in enumerate(chat_response.choices):
+        print(f"{i}: {choice.message.content}\n")
+
+    choice = int(input("Which response do you want to save?: "))
+    result = chat_response.choices[choice].message.content
+else:
+    print("Only one response available:")
+    result = chat_response.choices[0].message.content
+    print(result)
+
+with open("presentation.txt","w") as f:
+    f.write(result)

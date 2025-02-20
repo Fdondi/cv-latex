@@ -32,10 +32,7 @@ messages = [
             
             And here is the job description:
             """ + job_description + """
-            Your task is to respond with four sorted lists skills, each of at least 20 items
-            Write for each skill the following 4 colums:
-            -<importance rank>(1-20, sequential), <skill name>, <skill user rating>(1-5 if skill is present in user list, 0 otherwise), <reason for importance in job description>, <importance in job description>(1-5) 
-            Sort the skills by the product of the two ratings, descending (but show the ratings separately, not the product!).
+            Your task is to respond with four sorted lists skills, each of AT LEAST 20 items
             1. Explicit match:
             the skills that are explictitly mentioned in both the skill list and the job description: EXPLICIT SKILL, EXPLICIT JOB
             2. Implicit in user list:
@@ -48,7 +45,13 @@ messages = [
             the skills that are in the job description, but are not in the user list, and are also not implied: NO SKILL, EXPLICIT JOB
             For example if the skills lists only programming languages and the job asks for law knowledge, that doesn't seem like an acciental omission but an actual missing skill.
 
-            Repeat the full description of what the list should be before writing it.
+            Write for each list 
+            ### <list name>
+            <list description>
+            Then write a table with a line for each skill, with the following 5 colums:
+            |------------------------------------|--------------|------------------------------------------------------------------------|--------------------------------------------|-------------------------------------|
+            |<importance rank>(1-20, sequential) | <skill name> | <skill user rating>(1-5 if skill is present in user list, 0 otherwise) | <reason for importance in job description> | <importance in job description>(1-5)| 
+            Sort the skills by the product of the two ratings, descending (but show the ratings separately, not the product!).
             """
         }
     ]
@@ -61,6 +64,26 @@ chat_response = client.chat.complete(
 response_content = chat_response.choices[0].message.content
 
 print(response_content)
+
+# save the first list (full match) to a file 
+in_list = False
+list_file = None
+for line in response_content.split("\n"):
+    if line.startswith("###"):
+        list_name = line[4:].strip()
+        list_file = open(list_name + ".csv", "w")
+        continue
+    if line.startswith("|-"):
+        in_list = True
+        continue
+    if in_list:
+        if line.strip() == "":
+            in_list = False
+            list_file.close()
+            continue
+        elements = line.split("|")
+        list_file.write(f"{elements[2].strip()}, {elements[3].strip()}\n")
+
 control = input("Letter ready to examine? (y/n): ")
 
 if control.lower() != "y":

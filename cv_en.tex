@@ -38,6 +38,7 @@
 \usepackage{datatool}
 \usepackage{paracol}
 \usepackage{url}
+\usepackage{varwidth}
 
 \definecolor{customTeal}{RGB}{0, 128, 128} % RGB for Teal
 \definecolor{customTurquoise}{RGB}{64, 224, 208} % RGB for Turquoise
@@ -140,8 +141,21 @@ Married, no children}
 \textcolor{boldBlue}{\textbf{\large #1}}
 }
 
+\newcommand{\Position}[1]{
+\textcolor{color1}{#1}
+}
+
 \newcommand{\Location}[1]{%
 \textcolor{quietPurple}{\textbf{#1}}
+}
+
+\newcommand{\MyCvEntry}[4]{%
+\cventry{#1}{\Position{#2}}{}{\Company{#3}}{}{
+\noindent
+\begin{varwidth}{0.65\textwidth}
+#4
+\end{varwidth}
+}
 }
 
 \newenvironment{compactitemize}
@@ -157,60 +171,53 @@ Married, no children}
 
 \columnratio{0.75}
 \begin{paracol}{2}
-\section{Who I am}
-As a seasoned software developer, I bring a wealth of experience in developing robust software solutions. The post-Covid time has been hectic, but my diverse professional background gave me the experience to be immediately effective with all types of tools and processes. Now however I'm aiming at a stable position where I can grow long-term. I'm known among my peers and supervisors for being a reliable, intelligent, and friendly colleague, one who is always ready to take on responsibility and contribute to the team's success.
+%\section{Who I am}
+%As a seasoned software developer, I bring a wealth of experience in developing robust software solutions. The post-Covid time has been hectic, but my diverse professional background gave me the experience to be immediately effective with all types of tools and processes. Now however I'm aiming at a stable position where I can grow long-term. I'm known among my peers and supervisors for being a reliable, intelligent, and friendly colleague, one who is always ready to take on responsibility and contribute to the team's success.
 
-\section{2020-current: Startup experiences}
-\cventry{09/2024 - 01/2025}{Senior Machine Learning Engineer}{}{\Company{Giotto AI}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-Contributed to cutting-edge research tackling the ARC challenge. Especially focused on data augmentation. Extensively used BART for classification, and Pytorch/Lightning for efficient multi-GPU training. 
-\end{minipage}
+\section{2023-current: AI startups era}
+
+\MyCvEntry{03/2025 - 05/2025}{Backend Engineer}{Hoshii}{
+Delivered a  React webshop, integrating with MongoDb and Go backend, espanding the API as needed. Improved the AI orchestration pipeline.  
 }
 
-\cventry{03/2024 - 05/2024}{Senior Software Engineer}{}{\Company{Deep Impact}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
+\MyCvEntry{09/2024 - 01/2025}{Senior Machine Learning Engineer}{Giotto AI}{
+Contributed to cutting-edge research tackling the ARC challenge. Especially focused on data augmentation. Extensively used BART for classification, and Pytorch/Lightning for efficient multi-GPU training. 
+}
+
+\MyCvEntry{03/2024 - 05/2024}{Senior Software Engineer}{Deep Impact}{
 Had the opportunity to have direct experience of Computer Vision, both on cloud and edge embedded devices (Nvidia Jetson platform). 
 Contributed by overhauling Docker setup and solving bugs.
-\end{minipage}
 }
 
-\cventry{03/2023 - 09/2023}{Senior Software Engineer}{}{\Company{DoubleCloud}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
+\section{2021-2023: Cloud Data Warehousing arc}
+
+\MyCvEntry{03/2023 - 09/2023}{Senior Software Engineer}{DoubleCloud}{
 Developed infrastructure around ClickHouse SQL, deploying with SaltStack, Helm and Terraform. Go for Telegraf plugins.
-\end{minipage}
 }
 
-\cventry{06/2021 - 09/2022}{Senior Software Engineer}{}{\Company{Firebolt}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
+\MyCvEntry{06/2021 - 09/2022}{Senior Software Engineer}{Firebolt}{
 Developed the SQL optimization engine and testing infrastructure.
 \begin{compactitemize}
 \item Expanded supported SQL syntax and optimizations
 \item reworked the test framework to support new test suite
 \item contributed to rewriting to higher standards the optimization engine 
 \end{compactitemize}
-\end{minipage}
 }
 
-\cventry{08/2020 - 02/2021}{Software Developer and Quantitative Analyst}{}{\Company{F-Trust}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
+\section{2020-2021: Finance interlude}
+
+\MyCvEntry{08/2020 - 02/2021}{Software Developer and Quantitative Analyst}{F-Trust}{
 \begin{compactitemize}
 \item Maintained and developed a Trading Engine (C++)
 \item redesigned, implemented and migrated storage (PostgreSQL)
 \item extracted and integrated data from multiple log streams
 \item analyzed data to highlight opportunities for improvement (Julia)
 \end{compactitemize}
-\end{minipage}
 }
 
 \section{2017-2020: Google}
-\cventry{10/2017 - 05/2020}{Senior Software Developer}{}{\Company{Google}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
+
+\MyCvEntry{10/2017 - 05/2020}{Senior Software Developer}{Google}{
 Within Search, productionized an initially experimental tool (C++).
 \begin{compactitemize}
 \setlength\itemsep{-0.3em}
@@ -219,24 +226,18 @@ Within Search, productionized an initially experimental tool (C++).
 \item made the results easily visualizable and monitorable
 \item made onboarding orders of magnitude faster for most cases
 \end{compactitemize}
-\end{minipage}
 }
 
 \section{2015-2017: Initial Experiences}
-\cventry{04/2016 - 10/2017}{Software Developer}{}{\Company{Ascent Software}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
+
+\MyCvEntry{04/2016 - 10/2017}{Software Developer}{Ascent Software}{
 I helped maintain and develop a driver (C++) for automotive communications, running both on regular computers and embedded (QNX real-time OS) systems.
-\end{minipage}
 }
 
-
-\cventry{04/2015 - 04/2016}{Junior Developer}{}{\Company{Rulex Inc.}/\Company{CNR}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
+\MyCvEntry{04/2015 - 04/2016}{Junior Developer}{Rulex Inc./CNR}{
 Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia CUDA) parallelization. MATLAB algorithms to Python.
-\end{minipage}
 }
+
 \switchcolumn
 \begin{tabular}{lc}
 \tsection{Skills}

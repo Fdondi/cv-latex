@@ -51,6 +51,8 @@
 \definecolor{boldBlue}{RGB}{25, 25, 100} % MidnightBlue
 \definecolor{quietBlue}{RGB}{150, 200, 250} % SteelBlue
 
+\definecolor{titleBlue}{HTML}{4A6483}
+
 % Define purple colors
 \definecolor{boldPurple}{RGB}{153, 50, 204} % DarkOrchid
 \definecolor{quietPurple}{RGB}{175, 145, 200} % Lavender
@@ -138,7 +140,7 @@ Married, no children}
 } 
 
 \newcommand{\Company}[1]{%
-\textcolor{boldBlue}{\textbf{\large #1}}
+\textcolor{titleBlue}{\textbf{\large #1}}
 }
 
 \newcommand{\Position}[1]{
@@ -177,7 +179,7 @@ Married, no children}
 \section{2023-current: AI startups era}
 
 \MyCvEntry{03/2025 - 05/2025}{Backend Engineer}{Hoshii}{
-Delivered a  React webshop, integrating with MongoDb and Go backend, espanding the API as needed. Improved the AI orchestration pipeline.  
+Delivered a React webshop, integrating with MongoDb and Go backend, expanding the API as needed. Improved the AI orchestration pipeline.  
 }
 
 \MyCvEntry{09/2024 - 01/2025}{Senior Machine Learning Engineer}{Giotto AI}{
@@ -220,7 +222,6 @@ Developed the SQL optimization engine and testing infrastructure.
 \MyCvEntry{10/2017 - 05/2020}{Senior Software Developer}{Google}{
 Within Search, productionized an initially experimental tool (C++).
 \begin{compactitemize}
-\setlength\itemsep{-0.3em}
 \item Improved runtime from days to hours
 \item added support for new kinds of data
 \item made the results easily visualizable and monitorable
@@ -241,43 +242,42 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \switchcolumn
 \begin{tabular}{lc}
 \tsection{Skills}
-\tssection{Programming}
+\tssection{Languages}
 \tskl{C++}{5}
 \tskl{Python}{5}
-\tskl{SQL}{5}
-\tskl{- Clickhouse SQL}{5}
-\tskl{- PostgreSQL}{4}
+\tskl{Nvidia CUDA}{5}
+\tskl{BASH}{4}
+\tskl{Go}{3}
 \tskl{Java}{2}
 \tskl{Julia}{2}
 \tskl{\Csh}{2}
-\tskl{Go}{1}
 \tssection{Data Science/ML}
+\tskl{SQL}{5}
+\tskl{- Clickhouse SQL}{5}
+\tskl{- PostgreSQL}{4}
+\tskl{MongoDB} {3}
 \tskl{Pytorch}{4}
 \tskl{TensorFlow}{3}
 \tskl{Pandas}{4}
 \tskl{Numpy}{3}
-\tssection{Universal Tools}
+\tssection{Development}
 \tskl{Git}{5}
-\tskl{Nvidia CUDA}{5}
-\tskl{BASH}{4}
+\tskl{Cursor}{4}
 \tskl{Jenkins CI}{3}
-\tssection{Advanced Tools}
+\tskl{Gitlab CI}{3}
+\tssection{Web}
+\tskl{React}{3}
+\tskl{REST API}{3}
+\tskl{Gin}{3}
+\tskl{gRPC}{3}
+\tssection{Cloud}
 \tskl{Docker}{4}
 \tskl{Terraform}{2}
 \tskl{Helm}{1}
-\tskl{gRPC}{3}
-\tssection{Platforms}
 \tskl{Linux}{4}
 \tskl{AWS}{3}
 \tskl{GCloud}{3}
 \tskl{Windows}{3}
-\tskl{Nvidia Jetson}{2}
-\tssection{Competences}
-\tskl{Testing}{5}
-\tskl{DevOps}{4}
-\tskl{Design Docs}{5}
-\tskl{Agile Dev.}{4}
-\tskl{Embedded Dev.}{1}
 \tsection{Languages}
 \tskl{English}{5}
 \tskl{Italiano}{5}

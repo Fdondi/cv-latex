@@ -37,6 +37,8 @@
 \usepackage{wrapfig}
 \usepackage{datatool}
 \usepackage{paracol}
+\usepackage{url}
+\usepackage{varwidth}
 
 \definecolor{customTeal}{RGB}{0, 128, 128} % RGB for Teal
 \definecolor{customTurquoise}{RGB}{64, 224, 208} % RGB for Turquoise
@@ -44,13 +46,16 @@
 \definecolor{lightBlue}{HTML}{79B8CF}
 \definecolor{blueGray}{HTML}{748FB0}
 \definecolor{lightorange}{RGB}{255, 229, 204}
+\definecolor{navyBlue}{RGB}{0, 0, 139}
 
 \definecolor{boldBlue}{RGB}{25, 25, 100} % MidnightBlue
+\definecolor{quietBlue}{RGB}{150, 200, 250} % SteelBlue
+
+\definecolor{titleBlue}{HTML}{4A6483}
+
+% Define purple colors
+\definecolor{boldPurple}{RGB}{153, 50, 204} % DarkOrchid
 \definecolor{quietPurple}{RGB}{175, 145, 200} % Lavender
-
-% Alias
-\newcommand{\colorTwo}{blueGray}
-
 
 % Ensure that what displays C#, grabbing the text gets C-<ascii hex-23 = #>
 \newcommand*{\Csh}{C\texttt{\#} }
@@ -67,11 +72,11 @@
 
 \newcommand{\skl}[1]{%
 	\textcolor{white}{#1}% Still presents just the number to document text grab/copy
-	\textcolor{\colorTwo}{\skilllevel{#1}}%
+	\textcolor{blueGray}{\skilllevel{#1}}%
 }
 
 \usepackage[scale=0.9, top=2cm, bottom=2cm, left=0.7cm, right=0.7cm]{geometry} % Reduce document margins
-\setlength{\hintscolumnwidth}{4cm} % Uncomment to change the width of the dates column
+\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
 %\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
 
 %----------------------------------------------------------------------------------------
@@ -116,11 +121,11 @@ Verheiratet, keine Kinder}
 }
 
 \newcommand{\mysection}[1]{%
-\textcolor{color1}{\Large{#1}}%
+	\textcolor{color1}{\Large{#1}}%
 }
 
 \newcommand{\tsection}[1]{%
-	\ & \ \\	%
+	\ & \ \\	
 	\mysection{#1} & \\%
 }
 
@@ -133,153 +138,143 @@ Verheiratet, keine Kinder}
 } 
 
 \newcommand{\Company}[1]{%
-\textcolor{boldBlue}{\textbf{\large #1}}
+\textcolor{titleBlue}{\textbf{\large #1}}
+}
+
+\newcommand{\Position}[1]{
+\textcolor{color1}{#1}
 }
 
 \newcommand{\Location}[1]{%
 \textcolor{quietPurple}{\textbf{#1}}
 }
 
+\newcommand{\MyCvEntry}[4]{%
+\cventry{#1}{\Position{#2}}{}{\Company{#3}}{}{
+\noindent
+\begin{varwidth}{0.65\textwidth}
+\footnotesize #4
+\end{varwidth}
+}
+}
+
+\newenvironment{compactitemize}
+  {\vspace{-0.5em}\begin{itemize}\setlength{\itemsep}{-0.3em}\setlength{\parskip}{0pt}}
+  {\end{itemize}}
+
 \begin{document}
+\pdfinterwordspaceon
 
 \makecvtitle % Print the CV title
 \vspace{-3em}
 \columnratio{0.75}
 \begin{paracol}{2}
-\section{Wer ich bin}
+%\section{Wer ich bin}
+%Als erfahrener Softwareentwickler beherrsche ich die Entwicklung robuster Softwarelösungen, SQL-Datenbankoptimierung und effektive Datenanalyse. Von der Sicherung von Serverkonfigurationen bis zur Entwicklung komplexer Softwarelösungen bin ich in allen Entwicklungsphasen engagiert. Kollegen schätzen meine Zuverlässigkeit, Intelligenz und Teamfähigkeit.
 
-Als erfahrener Softwareentwickler beherrsche ich die Entwicklung robuster Softwarelösungen, SQL-Datenbankoptimierung und effektive Datenanalyse. Von der Sicherung von Serverkonfigurationen bis zur Entwicklung komplexer Softwarelösungen bin ich in allen Entwicklungsphasen engagiert. Kollegen schätzen meine Zuverlässigkeit, Intelligenz und Teamfähigkeit.
+\section{2023-current: AI startups era}
 
-\section{Berufserfahrung}
-\cventry{09/2024 - 01/2024 \ \Location{Zürich}}{Softwareentwickler}{}{\Company{DoubleCloud}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize Hat zur Spitzenforschung beigetragen, die sich mit der ARC-Herausforderung auseinandersetzt. Besonderer Schwerpunkt lag auf der Datenerweiterung. Umfangreiche Nutzung von BART zur Klassifizierung und Pytorch/Lightning für effizientes Multi-GPU-Training.
-\end{minipage}
+\MyCvEntry{03/2025 - 05/2025}{Backend Engineer}{Hoshii}{
+Geliefert: Ein React-Webshop, integriert mit MongoDB und Go-Backend, inklusive Erweiterung der API. Verbesserung der KI-Orchestrierungspipeline.
 }
 
+\MyCvEntry{09/2024 - 01/2025}{Senior Machine Learning Engineer}{Giotto AI}{
+Hat zur Spitzenforschung beigetragen, die sich mit der ARC-Herausforderung auseinandersetzt. Besonderer Schwerpunkt lag auf der Datenerweiterung. Nutzung von BART zur Klassifizierung und Pytorch/Lightning für effizientes Multi-GPU-Training.
+}
 
-\cventry{03/2024 - 05/2024 \\ \Location{Winterthur}}{Software Developer}{}{\Company{Deep Impact}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize Sammelte direkte Erfahrungen mit Computer Vision sowohl auf Cloud-Plattformen als auch auf eingebetteten Edge-Geräten (Nvidia Jetson).
+\MyCvEntry{03/2024 - 05/2024}{Software Developer}{Deep Impact}{
+Sammelte direkte Erfahrungen mit Computer Vision sowohl auf Cloud-Plattformen als auch auf eingebetteten Edge-Geräten (Nvidia Jetson).
 Leistete Beiträge durch die Überarbeitung der Docker-Konfiguration und die Behebung von Softwarefehlern.
-\end{minipage}
 }
 
-\cventry{03/2023 - 09/2023 \ \Location{Zürich}}{Softwareentwickler}{}{\Company{DoubleCloud}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize Wartung und Entwicklung der Infrastruktur um Managed ClickHouse, insbesondere:
-\\[-1.8em]
-\begin{itemize}
-\setlength\itemsep{-0.3em}
+\section{2021-2023: Cloud Data Warehousing arc}
+\MyCvEntry{03/2023 - 09/2023}{Softwareentwickler}{DoubleCloud}{
+Wartung und Entwicklung der Infrastruktur um Managed ClickHouse, insb.:
+\begin{compactitemize}
 \item Absicherung des Metrikenservers durch Hinzufügen von Nginx
 \item Verbesserung der SaltStack-Konfiguration
 \item Fehlerbehebung in Telegraf Go-Plugins
-\end{itemize}
-\end{minipage}
+\end{compactitemize}
 }
 
-\cventry{06/2021 - 09/2022 \ \Location{Zürich}}{Software Developer}{}{\Company{Firebolt}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize  Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
-\\[-1.8em]
-\begin{itemize}
-\setlength\itemsep{-0.3em}
+\MyCvEntry{06/2021 - 09/2022}{Software Developer}{Firebolt}{
+Wartung und Entwicklung des SQL-Optimierungsmotors und der Testinfrastruktur.
+\begin{compactitemize}
 \item Erweiterung der unterstützten SQL-Syntax und Optimierungen
 \item Anpassung des Testframeworks für neue Testserien
 \item Beitrag zur Neuschreibung des Optimierungsmotors
-\end{itemize}
-\end{minipage}
+\end{compactitemize}
 }
 
-\cventry{08/2020 - 02/2021 \\ \Location{Zug}}{Developer / Analyst}{}{\Company{F-Trust}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize 
-\begin{itemize}
-\setlength\itemsep{-0.3em}
+\section{2020-2021: Finance interlude}
+\MyCvEntry{08/2020 - 02/2021}{Developer / Analyst}{F-Trust}{
+\begin{compactitemize}
 \item Wartung und Entwicklung eines Handelsmotors (C++)
-\item Neugestaltung, Implementierung und Migration der Architektur der Datenspeicherung
+\item Neugestaltung und Migration der Architektur der Datenspeicherung
 \item Extraktion und Integration von Daten aus mehreren Log-Streams
 \item Datenanalyse zur Hervorhebung von Verbesserungsmöglichkeiten
-\end{itemize}
-\end{minipage}
+\end{compactitemize}
 }
 
-\cventry{10/2017 - 05/2020 \ \Location{Zürich}}{Software Developer}{}{\Company{Google}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize  Im Bereich Suche, ein ursprünglich experimentelles Tool in den produktiven Einsatz überführt (C++).
-\\[-1.8em]
-\begin{itemize}
-\setlength\itemsep{-0.3em}
+\section{2017-2020: Google}
+\MyCvEntry{10/2017 - 05/2020}{Software Developer}{Google}{
+Im Bereich Suche, ein ursprünglich experimentelles Tool in den produktiven Einsatz überführt (C++).
+\begin{compactitemize}
 \item Verbesserung der Laufzeit von Tagen auf Stunden
 \item Unterstützung für neue Datentypen
 \item Ergebnisse leicht visualisierbar und überwachbar
 \item Beschleunigung und Vereinfachung des Onboarding-Prozesses
-\end{itemize}
-\end{minipage}
+\end{compactitemize}
 }
 
-\cventry{04/2016 - 10/2017 \ \Location{Luqa, Malta}}{Software Developer}{}{\Company{Ascent Software}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize 
-Bei der Wartung und Entwicklung eines Treibers (C++) für die Kommunikation in der Automobilindustrie, der sowohl auf regulären Computern als auch auf eingebetteten Systemen (QNX-Echtzeitbetriebssystem) lief.
-\end{minipage}
+\section{2015-2017: Initial Experiences}
+\MyCvEntry{04/2016 - 10/2017}{Software Developer}{Ascent Software}{
+Wartung und Entwicklung eines Treibers (C++) in der Automobilindustrie, der sowohl auf regulären Computern als auf eingebetteten Systemen (QNX) lief.
 }
 
-\cventry{04/2015 - 04/2016 \ \Location{Genua, Italien} \ Unternehmensgröße: 5}{Junior Developer}{}{\Company{Rulex Inc.}/\Company{CNR}}{}{
-\noindent
-\begin{minipage}{0.65\textwidth}
-\footnotesize 
-Erforschung von Möglichkeiten zur Beschleunigung von C-Algorithmen mit CPU (OpenMP) und GPU (Nvidia CUDA) Parallelisierung. Übertragung von MATLAB-Algorithmen nach Python.
-\end{minipage}
+\MyCvEntry{04/2015 - 04/2016}{Junior Developer}{Rulex Inc./CNR}{
+Beschleunigung von C-Algorithmen mit CPU (OpenMP) und GPU (Nvidia CUDA) Parallelisierung. Übertragung von MATLAB-Algorithmen nach Python.
 }
 
 \switchcolumn
 \begin{tabular}{lc}
 \tsection{Skills}
-\tssection{Programming}
+\tssection{Languages}
 \tskl{C++}{5}
-\tskl{- C++/Abseil}{5}
-\tskl{- C++/Boost}{4}
+\tskl{Python}{5}
+\tskl{Nvidia CUDA}{5}
+\tskl{BASH}{4}
+\tskl{Go}{3}
 \tskl{Java}{2}
+\tskl{Julia}{2}
+\tskl{\Csh}{2}
+\tssection{Data Science/ML}
 \tskl{SQL}{5}
 \tskl{- Clickhouse SQL}{5}
 \tskl{- PostgreSQL}{4}
-\tskl{Python}{4}
-\tskl{Julia}{2}
-\tskl{Rust}{1}
-\tssection{Universal Tools}
-\tskl{BASH}{4}
-\tskl{SSH}{3}
-\tskl{VIM}{3}
-\tskl{Linux}{4}
-\tskl{Windows}{3}
-\tskl{Visual Studio}{2}
+\tskl{MongoDB} {3}
+\tskl{Pytorch}{4}
+\tskl{TensorFlow}{3}
+\tskl{Pandas}{4}
+\tskl{Numpy}{3}
+\tssection{Development}
 \tskl{Git}{5}
+\tskl{Cursor}{4}
 \tskl{Jenkins CI}{3}
-\tssection{Advanced Tools}
-\tskl{AWS}{3}
-\tskl{Docker}{4}
+\tskl{Gitlab CI}{3}
+\tssection{Web}
+\tskl{React}{3}
+\tskl{REST API}{3}
+\tskl{Gin}{3}
 \tskl{gRPC}{3}
-\tskl{ZeroMQ}{1}
-\tskl{Valgrind}{3}
-\tskl{Flamegraph}{2}
-\tskl{Gstreamer}{1}
-\tskl{Nvidia CUDA}{2}
-\tskl{OpenMP}{3}
-\tssection{Competences}
-\tskl{Testing}{5}
-\tskl{Debugging}{4}
-\tskl{DevOps}{4}
-\tskl{Design Docs}{5}
-\tskl{Embedded Dev.}{1}
-\tskl{Agile Dev.}{4}
+\tssection{Cloud}
+\tskl{Docker}{4}
+\tskl{Terraform}{2}
+\tskl{Helm}{1}
+\tskl{Linux}{4}
+\tskl{AWS}{3}
+\tskl{GCloud}{3}
+\tskl{Windows}{3}
 \tsection{Languages}
 \tskl{English}{5}
 \tskl{Italiano}{5}

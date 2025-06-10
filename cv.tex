@@ -76,7 +76,7 @@
 }
 
 \usepackage[scale=0.9, top=2cm, bottom=2cm, left=0.7cm, right=0.7cm]{geometry} % Reduce document margins
-\setlength{\hintscolumnwidth}{3.6cm} % Uncomment to change the width of the dates column
+\setlength{\hintscolumnwidth}{2cm} % Uncomment to change the width of the dates column
 %\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
 
 %----------------------------------------------------------------------------------------
@@ -140,7 +140,7 @@ Married, no children}
 } 
 
 \newcommand{\Company}[1]{%
-\textcolor{titleBlue}{\textbf{\large #1}}
+\textcolor{titleBlue}{\textbf{#1}}%
 }
 
 \newcommand{\Position}[1]{
@@ -176,68 +176,29 @@ Married, no children}
 %\section{Who I am}
 %As a seasoned software developer, I bring a wealth of experience in developing robust software solutions. The post-Covid time has been hectic, but my diverse professional background gave me the experience to be immediately effective with all types of tools and processes. Now however I'm aiming at a stable position where I can grow long-term. I'm known among my peers and supervisors for being a reliable, intelligent, and friendly colleague, one who is always ready to take on responsibility and contribute to the team's success.
 
-\section{2023-current: AI startups era}
+\section{2023-current: AI startups}
+In 2023, I realized just programming was no longer enough, and I needed to get out of my comfort zone. I decided to explore the opportunities offered by AI.
 
-\MyCvEntry{03/2025 - 05/2025}{Backend Engineer}{Hoshii}{
-Delivered a React webshop, integrating with MongoDb and Go backend, expanding the API as needed. Improved the AI orchestration pipeline.  
-}
-
-\MyCvEntry{09/2024 - 01/2025}{Senior Machine Learning Engineer}{Giotto AI}{
-Contributed to cutting-edge research tackling the ARC challenge. Especially focused on data augmentation. Extensively used BART for classification, and Pytorch/Lightning for efficient multi-GPU training. 
-}
-
-\MyCvEntry{03/2024 - 05/2024}{Senior Software Engineer}{Deep Impact}{
-Had the opportunity to have direct experience of Computer Vision, both on cloud and edge embedded devices (Nvidia Jetson platform). 
+As \Position{Backend Engineer} for \Company{Hoshii}, I contributed to a LangChain AI pipeline for advanced OCR. In non-AI tasks, I delivered a React webshop, integrating with MongoDb and Go backend, expanding the API as needed. \\
+As \Position{Senior Machine Learning Engineer} for \Company{Giotto AI}, contributed to cutting-edge research tackling the ARC challenge. Especially focused on data augmentation. Extensively used BART for classification, and Pytorch/Lightning for efficient multi-GPU training. \\
+As \Position{Senior Software Engineer} for \Company{Deep Impact}, had the opportunity to have direct experience of Computer Vision, both on cloud and edge embedded devices (Nvidia Jetson platform). 
 Contributed by overhauling Docker setup and solving bugs.
-}
 
-\section{2021-2023: Cloud Data Warehousing arc}
+\section{2021-2023: Cloud Data Warehousing}
+Cloud SQL providers seemed a promising field to apply C++ to a problem with high performance requirements, analyzing and exectuting query plans. Unfortunately, the success of Snowflake couldn't be recreated, and interest rates falcidiated the sector. \\
+As \Position{Senior Software Engineer} for \Company{DoubleCloud}, developed infrastructure around ClickHouse SQL, deploying with SaltStack, Helm and Terraform. Go for Telegraf plugins. \\
+As \Position{Senior Software Engineer} for \Company{Firebolt}, developed the SQL optimization engine and testing infrastructure: expanded supported SQL syntax and optimizations, reworked the test framework to support new test suite, and contributed to rewriting to higher standards the optimization engine.
 
-\MyCvEntry{03/2023 - 09/2023}{Senior Software Engineer}{DoubleCloud}{
-Developed infrastructure around ClickHouse SQL, deploying with SaltStack, Helm and Terraform. Go for Telegraf plugins.
-}
-
-\MyCvEntry{06/2021 - 09/2022}{Senior Software Engineer}{Firebolt}{
-Developed the SQL optimization engine and testing infrastructure.
-\begin{compactitemize}
-\item Expanded supported SQL syntax and optimizations
-\item reworked the test framework to support new test suite
-\item contributed to rewriting to higher standards the optimization engine 
-\end{compactitemize}
-}
-
-\section{2020-2021: Finance interlude}
-
-\MyCvEntry{08/2020 - 02/2021}{Software Developer and Quantitative Analyst}{F-Trust}{
-\begin{compactitemize}
-\item Maintained and developed a Trading Engine (C++)
-\item redesigned, implemented and migrated storage (PostgreSQL)
-\item extracted and integrated data from multiple log streams
-\item analyzed data to highlight opportunities for improvement (Julia)
-\end{compactitemize}
-}
+\section{2020 - 2021: finance market-making}
+Fresh out of Google, I found an unique and exciting opportunity in the financial sector.
+As \Position{Software Developer and Quantitative Analyst} at \Company{F-Trust}, maintained and developed a Trading Engine (C++); redesigned, implemented and migrated storage (PostgreSQL); extracted and integrated data from multiple log streams; analyzed data to highlight opportunities for improvement (Julia).
 
 \section{2017-2020: Google}
+As \Position{Senior Software Developer} at \Company{Google}: within Search, productionized an initially experimental tool (C++): improved runtime from days to hours, added support for new kinds of data, made the results easily visualizable and monitorable, and made onboarding orders of magnitude faster for most cases.
 
-\MyCvEntry{10/2017 - 05/2020}{Senior Software Developer}{Google}{
-Within Search, productionized an initially experimental tool (C++).
-\begin{compactitemize}
-\item Improved runtime from days to hours
-\item added support for new kinds of data
-\item made the results easily visualizable and monitorable
-\item made onboarding orders of magnitude faster for most cases
-\end{compactitemize}
-}
-
-\section{2015-2017: Initial Experiences}
-
-\MyCvEntry{04/2016 - 10/2017}{Software Developer}{Ascent Software}{
-I helped maintain and develop a driver (C++) for automotive communications, running both on regular computers and embedded (QNX real-time OS) systems.
-}
-
-\MyCvEntry{04/2015 - 04/2016}{Junior Developer}{Rulex Inc./CNR}{
-Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia CUDA) parallelization. MATLAB algorithms to Python.
-}
+\section{2015 - 2017: Initial experiences}
+At \Company{Ascent Software}, I helped maintain and develop a driver (C++) for automotive communications, running both on regular computers and embedded (QNX real-time OS). \\ 
+At \Company{Rulex Inc}, I explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia CUDA) parallelization. At \Company{CNR}, I ported MATLAB algorithms to Python.
 
 \switchcolumn
 \begin{tabular}{lc}

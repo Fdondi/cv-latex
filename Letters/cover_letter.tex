@@ -13,19 +13,19 @@
 \usepackage{wallpaper}     % for background
 \usepackage[scale=0.85]{geometry}  % Adjust margins
 
-\TileWallPaper{\paperwidth}{\paperheight}{paper.jpg}
+\TileWallPaper{\paperwidth}{\paperheight}{Imgs/paper.jpg}
 
 % Set up the family crest in the top-left behind personal info
 \newcommand{\familycrest}{%
   \begin{tikzpicture}[remember picture, overlay]
-    \node[opacity=0.2, anchor=north east, shift={(0cm,-0.5cm)}] at (current page.north east) {\includegraphics[width=5cm]{Dondi.png}};
+    \node[opacity=0.2, anchor=north east, shift={(0cm,-0.5cm)}] at (current page.north east) {\includegraphics[width=5cm]{Imgs/Dondi.png}};
   \end{tikzpicture}
 }
 
 % Set up the company logo on the top-right above recipient info
 \newcommand{\companylogo}{%
   \begin{tikzpicture}[remember picture, overlay]
-    \node[opacity=0.7, anchor=north west, shift={(0cm,0cm)}] at (current page.north west) {\includegraphics[width=7cm]{company.png}};
+    \node[opacity=0.7, anchor=north west, shift={(0cm,0cm)}] at (current page.north west) {\includegraphics[width=7cm]{Logos/company.png}};
   \end{tikzpicture}
 }
 
@@ -54,7 +54,7 @@
 
 Example body
 
-\closing{Best Regards, \\ \vspace{2em} \includegraphics[height=3em]{../firma_estesa-nobg.png}
+\closing{Best Regards, \\ \vspace{2em} \includegraphics[height=3em]{Imgs/firma_estesa-nobg.png}
 \vspace{-7em}}
 \makeletterclosing
 \end{document}

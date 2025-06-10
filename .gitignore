@@ -7,7 +7,6 @@
 desktop.ini
 Letters/*
 !Letters/cover_letter.tex
-!Letters/company.png
-!Letters/paper.jpg
-!Letters/paper_alt.jpg
+!Letters/Logos/company.png
+!Letters/Imgs
 skills_ai_selector/.env

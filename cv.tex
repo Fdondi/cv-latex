@@ -158,6 +158,16 @@ Verheiratet, keine Kinder}
 }
 }
 
+\newcommand{\MyCompactCvEntry}[4]{%
+\cventry{#1}{\Position{#2}}{}{\Company{#3}}{#4
+}{}
+\vspace{-0.5em}
+}
+
+\newcommand{\MyBook}[2]{%
+    \item[\faBook] \textbf{#1} \textit{#2}%
+}
+
 \newenvironment{compactitemize}
   {\vspace{-0.5em}\begin{itemize}\setlength{\itemsep}{-0.3em}\setlength{\parskip}{0pt}}
   {\end{itemize}}
@@ -319,7 +329,6 @@ Beschleunigung von C-Algorithmen mit CPU (OpenMP) und GPU (Nvidia CUDA) Parallel
 \Course{Nov 2023}{Data Fluency: Exploring and Describing Data}{Linkedin}
 \Course{Nov 2023}{Power BI Essential Training}{Linkedin}
 \Course{Oct 2023}{Business Intelligence for Consultants}{Linkedin}
-\Course{Oct 2023}{Data Analytics for Business Professionals}{Linkedin}
 \Course{Oct 2023}{Excel: Economic Analysis and Data Analytics}{Linkedin}
 \Course{Oct 2023}{The Non-Technical Skills of Effective Data Scientists}{Linkedin}
 \EndCourses
@@ -327,35 +336,9 @@ Beschleunigung von C-Algorithmen mit CPU (OpenMP) und GPU (Nvidia CUDA) Parallel
 \begin{tabular}{p{3cm}c}
 \tskl{Data Analysis}{3}
 \tskl{Data Visualization}{4}
-\tskl{Probability}{4}
 \tskl{Microsoft Power BI}{2}
 \tskl{Microsoft Excel}{5}
 \tskl{Pandas}{4}
-\end{tabular}
-\end{paracol}
-
-\subsection{Maschinelles Lernen/LLMs/AI}
-\begin{paracol}{2}
-\switchcolumn[0]*
-\BeginCourses
-\Course{Jan 2024}{Generative AI with Large Language Models}{Coursera}
-\EndCourses
-\switchcolumn
-\begin{tabular}{p{3cm}c}
-\tskl{LLMs}{2}
-\end{tabular}
-\end{paracol}
-
-\subsection{Programmiersprachen}
-\begin{paracol}{2}
-\BeginCourses
-\Course{Nov 2023}{\Csh Essential Training 1: Types and Control Flow}{Linkedin}
-\Course{Oct 2023}{Learning MATLAB}{Linkedin}
-\EndCourses
-\switchcolumn
-\begin{tabular}{p{3cm}c}
-\tskl{\Csh}{2}
-\tskl{MATLAB}{3}
 \end{tabular}
 \end{paracol}
 
@@ -399,15 +382,60 @@ Beschleunigung von C-Algorithmen mit CPU (OpenMP) und GPU (Nvidia CUDA) Parallel
 \begin{tabular}{p{3cm}c}
 \tskl{C++ Embedded}{3}
 \tskl{Arduino}{2}
-\tskl{SSH embedded}{1}
-\tskl{Embedded Development}{2}
+\tskl{Embedded Dev.}{2}
 \tskl{Electronics}{2}
-\tskl{Embedded connectivity (USB, WiFi/SSH, Bluetooth LE)}{1}
+\tskl{Connectivity (USB, WiFi/SSH, Bluetooth LE)}{1}
 \end{tabular}
 \end{paracol}
 
-\section{Hobbys und Interessen}
+%\subsection{LLMs / Prompt engineering}
+%\begin{paracol}{2}
+%\BeginCourses
+%\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{CustomGPT for grammar, explanation in German and English, examples. Clarifies ambiguous words. Adjusts German level.}
+%\EndCourses
+%\switchcolumn
+%\begin{tabular}{p{3cm}c}
+%\tskl{AI UX}{3}
+%\tskl{Prompt engineering}{3}
+%\end{tabular}
+%\end{paracol}
+
+\begin{paracol}{2}
+\vspace{-1em}
+\section{Hackatons}
+\MyCvEntry{14-16/Nov/2025}{HackaHealth Zürich}{ETH Student House}{We help Patrick after his spinal cord injury: Paragliding made possible.}
+\vspace{-0.3em}
+\MyCvEntry{26-27/Sep/2025}{ZurichHack}{Swiss \{ai\} Weeks}{Mine the Gap: Erkennen von Anomalien in dynamischen Knowledge Graph.}
+\vspace{-0.3em}
+\MyCvEntry{11-12/Sep/2025}{Energy Data Hackdays}{BKW}{Entwicklung smarter, widerstandsfähiger lokaler Energie-Gemeinschaften.}
+\vspace{-0.3em}
+\MyCompactCvEntry{19-20/Mar/2016}{H-Farm}{H-Ack Food}{Reinventing the ’Bio food’ experience.}
+\MyCompactCvEntry{12-13/Dec/2015}{H-Farm}{H-Ack Luxottica}{Ideas for the future of glasses.}
+\vspace{-0.3em}
+\section{Prizes}
+\cventry{2024}{\href{https://app.codility.com/programmers/challenges/}{Codility Pi Challenge}}{}{Silver Award}{}{}
+\vspace{-0.3em}
+\cventry{2009}{Italian Olympics of Mathematics}{Gold \includegraphics[width=0.6em]{gold.png}}{}{}{}
+\vspace{-0.3em}
+\cventry{2008}{Italian Olympics of Information Technology}{Bronze  \includegraphics[width=0.7em]{bronze.png}}{}{}{}
+\switchcolumn
+\vspace{1em}
+\mysection{Leaderboards/training}
+\begin{itemize}
+\item[\faSortAmountUp*] \href{https://leetcode.com/u/Fdondi/}{Leetcode}
+\item[\faSortAmountUp*] \href{https://www.kaggle.com/litecoin}{Kaggle}
+\end{itemize}
+\mysection{Books to swear by}
+\begin{itemize}
+\small
+\MyBook{Designing Data-Intensive Applications}{Martin Kleppmann}
+\MyBook{Kubernetes Patterns}{Bilgin Ibryam, Roland Huß}
+\MyBook{Effective Java}{Joshua Bloch}
+\end{itemize}
+\mysection{Hobbys und Interessen}
 
 Lesen, Wandern, Radfahren, Schwimmen.
+
+\end{paracol}
 
 \end{document}

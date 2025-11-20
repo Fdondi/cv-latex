@@ -160,6 +160,16 @@ Married, no children}
 }
 }
 
+\newcommand{\MyCompactCvEntry}[4]{%
+\cventry{#1}{\Position{#2}}{}{\Company{#3}}{#4
+}{}
+\vspace{-0.5em}
+}
+
+\newcommand{\MyBook}[2]{%
+    \item[\faBook] \textbf{#1} \textit{#2}%
+}
+
 \newenvironment{compactitemize}
   {\vspace{-0.5em}\begin{itemize}\setlength{\itemsep}{-0.3em}\setlength{\parskip}{0pt}}
   {\end{itemize}}
@@ -315,9 +325,7 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \Course{Jul 2025}{Introduction to Azure AI Foundry: Exploring Services and Capabilities}{Linkedin}
 \Course{Jul 2025}{Spark for Machine Learning \& AI}{Linkedin}
 \Course{Jul 2025}{Hands-On Introduction: Data Engineering}{Linkedin}
-\Course{Oct 2024}{AI Workshop: Build a Neural Network with PyTorch Lightning}{Linkedin}
-\Course{Jan 2024}{Generative AI with Large Language Models}{Coursera}
-\Course{Dic 2023}{Advanced Prompt Engineering Techniques}{Linkedin}
+\Course{Oct 2024}{Build a Neural Network with PyTorch Lightning}{Linkedin}
 \EndCourses
 \switchcolumn
 \begin{tabular}{p{3cm}c}
@@ -391,21 +399,41 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \hspace{-1em}\raisebox{\dimexpr\ht\strutbox-\height}{\includegraphics[width=0.1\textwidth]{#1}} & #2 & \textbf{#3} \href{http://#4}{\textcolor{blueGray}{#4}} \newline #5 \\ 
 }
 
+%\subsection{LLMs / Prompt engineering}
+%\begin{paracol}{2}
+%\BeginCourses
+%\Project{worterbuch.png}{Dec 2023}{Deutsches Wörterbuch}{chat.openai.com/g/g-bpvvdzIKE-deutsches-worterbuch}{CustomGPT for grammar, explanation in German and English, examples. Clarifies ambiguous words. Adjusts German level.}
+%\EndCourses
+%\switchcolumn
+%\begin{tabular}{p{3cm}c}
+%\tskl{AI UX}{3}
+%\tskl{Prompt engineering}{3}
+%\end{tabular}
+%\end{paracol}
+
 \begin{paracol}{2}
 
-\section{Competitions}
-\small{
-\cventry{ongoing}{Kaggle}{\href{https://www.kaggle.com/litecoin}{https://www.kaggle.com/litecoin}}{}{}{}{}
-\cventry{19-20/Mar/2016}{H-Farm}{H-Ack Food}{Reinventing the ’Bio food’ experience.}{}{}{}
-\cventry{12-13/Dec/2015}{H-Farm}{H-Ack Luxottica}{Ideas for the future of glasses.}{}{}{}
-\cventry{2009}{Italian Olympics of Mathematics}{Gold \includegraphics[width=0.6em]{gold.png}}{}{}{}{}
-\cventry{2008}{Italian Olympics of Information Technology}{Bronze  \includegraphics[width=0.7em]{bronze.png}}{}{}{}{}
-}
+\section{Hackatons}
+\MyCvEntry{14-16/Nov/2025}{HackaHealth Zürich}{ETH Student House}{Help Patrick paraglide again despite paralysed legs.}
+\vspace{-0.3em}
+\MyCvEntry{26-27/Sep/2025}{ZurichHack}{Swiss \{ai\} Weeks}{Mine the Gap: Detect anomalies in an evolving knowledge graph.}
+\vspace{-0.3em}
+\MyCvEntry{11-12/Sep/2025}{Energy Data Hackdays}{BKW}{Smart Design of Resilient Local Energy Communities}
+\vspace{-0.3em}
+\MyCompactCvEntry{19-20/Mar/2016}{H-Farm}{H-Ack Food}{Reinventing the ’Bio food’ experience.}
+\MyCompactCvEntry{12-13/Dec/2015}{H-Farm}{H-Ack Luxottica}{Ideas for the future of glasses.}
 \switchcolumn
-\vspace{1.3em}
+\vspace{1em}
+\mysection{Leaderboards/training}
+\begin{itemize}
+\item[\faSortAmountUp*] \href{https://leetcode.com/u/Fdondi/}{Leetcode}
+\item[\faSortAmountUp*] \href{https://www.kaggle.com/litecoin}{Kaggle}
+\end{itemize}
 \mysection{Personal}
 \\ 
-Hobbies:\\ Read, hike, bike, swim.
+Hobbies: 
+\\
+Read, hike, bike, swim.
 
 \end{paracol}
 

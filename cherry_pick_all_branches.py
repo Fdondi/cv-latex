@@ -15,6 +15,7 @@ import os
 import json
 import argparse
 import fnmatch
+import platform
 from pathlib import Path
 
 
@@ -145,6 +146,167 @@ def check_conflicts():
     return bool(output.strip())
 
 
+def get_modified_tex_files():
+    """Get list of .tex files that have been modified or are in conflicts."""
+    # Get files with conflicts
+    conflict_output, _, _ = run_git_command(['diff', '--name-only', '--diff-filter=U'])
+    conflict_files = [f.strip() for f in conflict_output.split('\n') if f.strip()]
+    
+    # Get staged files (after resolution)
+    staged_output, _, _ = run_git_command(['diff', '--cached', '--name-only'])
+    staged_files = [f.strip() for f in staged_output.split('\n') if f.strip()]
+    
+    # Get modified files in working directory
+    modified_output, _, _ = run_git_command(['diff', '--name-only'])
+    modified_files = [f.strip() for f in modified_output.split('\n') if f.strip()]
+    
+    # Combine all and filter for .tex files
+    all_files = set(conflict_files + staged_files + modified_files)
+    tex_files = [f for f in all_files if f.endswith('.tex')]
+    
+    return tex_files
+
+
+def compile_tex_file(tex_file):
+    """Compile a .tex file to .pdf using pdflatex or latexmk."""
+    tex_path = Path(tex_file)
+    if not tex_path.exists():
+        print(f"Warning: {tex_file} does not exist. Skipping compilation.")
+        return False, None
+    
+    # Try latexmk first (more robust), fallback to pdflatex
+    pdf_file = tex_path.with_suffix('.pdf')
+    
+    # Try latexmk (common on Windows with MiKTeX, Linux with TeX Live)
+    stdout, stderr, success = run_git_command(['latexmk', '-pdf', '-interaction=nonstopmode', str(tex_path)], check=False)
+    
+    if not success:
+        # Fallback to pdflatex
+        print(f"latexmk not found, trying pdflatex...")
+        stdout, stderr, success = run_git_command(['pdflatex', '-interaction=nonstopmode', str(tex_path)], check=False)
+        
+        if success:
+            # Run pdflatex again for references (if needed)
+            run_git_command(['pdflatex', '-interaction=nonstopmode', str(tex_path)], check=False)
+    
+    if success and pdf_file.exists():
+        return True, str(pdf_file)
+    else:
+        error_msg = stderr if stderr else stdout
+        print(f"Compilation failed: {error_msg}")
+        return False, None
+
+
+def open_pdf(pdf_file):
+    """Open PDF file using the system's default viewer (cross-platform)."""
+    pdf_path = Path(pdf_file)
+    if not pdf_path.exists():
+        print(f"Error: PDF file {pdf_file} does not exist.")
+        return False
+    
+    system = platform.system()
+    try:
+        if system == 'Windows':
+            os.startfile(str(pdf_path))
+        elif system == 'Darwin':  # macOS
+            subprocess.run(['open', str(pdf_path)])
+        else:  # Linux and others
+            subprocess.run(['xdg-open', str(pdf_path)])
+        return True
+    except Exception as e:
+        print(f"Warning: Could not open PDF automatically: {e}")
+        print(f"Please manually open: {pdf_path.absolute()}")
+        return False
+
+
+def handle_tex_files():
+    """Handle .tex files after conflict resolution: compile and verify."""
+    tex_files = get_modified_tex_files()
+    
+    if not tex_files:
+        return True  # No .tex files to handle
+    
+    print(f"\n⚠  LaTeX files detected: {len(tex_files)} .tex file(s) modified")
+    print("These files need to be recompiled and verified.")
+    
+    for tex_file in tex_files:
+        print(f"\n{'='*60}")
+        print(f"Processing: {tex_file}")
+        print(f"{'='*60}")
+        
+        # Compile .tex to .pdf
+        print(f"Compiling {tex_file} to PDF...")
+        success, pdf_file = compile_tex_file(tex_file)
+        
+        if not success:
+            response = input(f"Compilation failed for {tex_file}. Continue anyway? (y/n): ").strip().lower()
+            if response != 'y':
+                return False
+            continue
+        
+        print(f"✓ Compiled to: {pdf_file}")
+        
+        # Open PDF for user to check
+        print(f"\nOpening PDF for review...")
+        if not open_pdf(pdf_file):
+            print(f"Please manually open: {pdf_file}")
+        
+        # Ask user to verify
+        while True:
+            response = input(f"\nHave you reviewed {pdf_file}? Does it look correct? (y/n/retry): ").strip().lower()
+            
+            if response == 'y':
+                # User confirmed, stage the new PDF
+                print(f"Staging new PDF: {pdf_file}")
+                stdout, stderr, success = run_git_command(['add', pdf_file], check=False)
+                if success:
+                    print(f"✓ Staged {pdf_file}")
+                    break
+                else:
+                    error_msg = stderr if stderr else stdout
+                    print(f"✗ Failed to stage {pdf_file}: {error_msg}")
+                    response = input("Continue anyway? (y/n): ").strip().lower()
+                    if response == 'y':
+                        break
+                    continue
+            
+            elif response == 'n':
+                # User says PDF is wrong
+                fix_response = input("PDF is incorrect. Have you fixed the .tex file? (y/n): ").strip().lower()
+                if fix_response == 'y':
+                    # Recompile after user fixes
+                    success, pdf_file = compile_tex_file(tex_file)
+                    if success:
+                        open_pdf(pdf_file)
+                        continue  # Ask again
+                    else:
+                        print("Compilation failed. You may need to fix issues manually.")
+                        continue
+                else:
+                    response = input("Continue without fixing? (y/n): ").strip().lower()
+                    if response == 'y':
+                        # Stage PDF anyway
+                        run_git_command(['add', pdf_file], check=False)
+                        break
+                    else:
+                        return False  # User wants to abort
+            
+            elif response == 'retry':
+                # Recompile
+                success, pdf_file = compile_tex_file(tex_file)
+                if success:
+                    open_pdf(pdf_file)
+                    continue
+                else:
+                    print("Compilation failed. Please fix the .tex file manually.")
+                    continue
+            
+            else:
+                print("Please enter 'y' (yes), 'n' (no), or 'retry'")
+    
+    return True  # All .tex files handled
+
+
 def save_state(state_file, commits, current_branch, remaining_branches, failed_branches):
     """Save the current state to a file."""
     # Convert commits to serializable format
@@ -243,6 +405,15 @@ def cherry_pick_commits(branch, commits):
     stdout, stderr, success = run_git_command(cherry_pick_args, check=False)
     
     if success:
+        # Check for modified .tex files even if no conflicts occurred
+        # This handles cases where .tex files were modified during cherry-pick
+        tex_files = get_modified_tex_files()
+        if tex_files:
+            print(f"\n⚠  LaTeX files modified during cherry-pick: {len(tex_files)} .tex file(s)")
+            if not handle_tex_files():
+                print("Warning: LaTeX file handling was aborted, but cherry-pick succeeded.")
+                print("You may need to manually compile and commit the PDFs.")
+        
         print(f"✓ Successfully cherry-picked to '{branch}'")
         return True, 'success'
     else:
@@ -272,7 +443,7 @@ def cherry_pick_commits(branch, commits):
 
 
 def wait_for_resolution():
-    """Wait for user to resolve conflicts."""
+    """Wait for user to resolve conflicts and handle .tex files if needed."""
     while True:
         response = input("\nHave you resolved the conflicts? (y/n/abort): ").strip().lower()
         
@@ -288,6 +459,14 @@ def wait_for_resolution():
             if not (git_dir / 'CHERRY_PICK_HEAD').exists():
                 print("Warning: Not in cherry-pick state. Was the cherry-pick aborted?")
                 response = input("Continue anyway? (y/n): ").strip().lower()
+                if response != 'y':
+                    return False
+            
+            # Handle .tex files: compile and verify PDFs
+            # This must happen before continuing cherry-pick
+            if not handle_tex_files():
+                print("LaTeX file handling was aborted.")
+                response = input("Continue with cherry-pick anyway? (y/n): ").strip().lower()
                 if response != 'y':
                     return False
             

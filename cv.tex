@@ -160,6 +160,16 @@ Married, no children}
 }
 }
 
+\newcommand{\MyCompactCvEntry}[4]{%
+\cventry{#1}{\Position{#2}}{}{\Company{#3}}{#4
+}{}
+\vspace{-0.5em}
+}
+
+\newcommand{\MyBook}[2]{%
+    \item[\faBook] \textbf{#1} \textit{#2}%
+}
+
 \newenvironment{compactitemize}
   {\vspace{-0.5em}\begin{itemize}\setlength{\itemsep}{-0.3em}\setlength{\parskip}{0pt}}
   {\end{itemize}}
@@ -313,15 +323,12 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \subsection{Programming languages}
 \begin{paracol}{2}
 \BeginCourses
-\Course{Aug 2024}{J.P. Morgan Python training}{\href{https://github.com/jpmorganchase/python-training}{GitHub}}
 \Course{Aug 2024}{React.js Essential training}{Linkedin}
 \Course{May 2024}{gRPC in Python}{Linkedin}
 \Course{May 2024}{Design Patterns for Rust}{Linkedin}
 \Course{Mar 2024}{\Csh and .NET Essential Training}{Linkedin}
 \Course{Jan 2024}{Designing RESTful APIs}{Linkedin}
-\Course{Nov 2023}{\Csh Essential Training 1: Types and Control Flow}{Linkedin}
 \Course{Nov 2023}{C Programming for Embedded Applications}{Linkedin}
-\Course{Oct 2023}{Learning MATLAB}{Linkedin}
 \Course{Jan 2023}{Rust Essential Training}{Linkedin}
 \Course{Jan 2023}{Level Up: Java}{Linkedin}
 \EndCourses
@@ -330,7 +337,6 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \tskl{React}{2}
 \tskl{Rust}{3}
 \tskl{\Csh}{3}
-\tskl{Financial Python}{3}
 \tskl{Java}{4}
 \tskl{MATLAB}{3}
 \tskl{C Embedded}{3}
@@ -344,13 +350,11 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 \BeginCourses
 \Course{Aug 2024}{Communicating Time Boundaries}{Linkedin}
 \Course{Jun 2024}{Software Design: Modeling with UML}{Linkedin}
-\Course{Feb 2023}{Software Architecture: From Developer to Architect}{Linkedin}
 \EndCourses
 \switchcolumn
 \begin{tabular}{p{3cm}c}
 \tskl{UML}{2}
 \tskl{Business planning}{3}
-\tskl{Software Arch.}{4}
 \end{tabular}
 \end{paracol}
 
@@ -407,20 +411,40 @@ Explored options for speeding up C algorithms with CPU (OpenMP) and GPU (Nvidia 
 %\end{paracol}
 
 \begin{paracol}{2}
-\section{Competitions}
-\cventry{ongoing}{Leetcode}{\href{https://leetcode.com/u/Fdondi/}{https://leetcode.com/u/Fdondi/}}{}{}{}{}
-\cventry{ongoing}{Kaggle}{\href{https://www.kaggle.com/litecoin}{https://www.kaggle.com/litecoin}}{}{}{}{}
-\cventry{2024}{\href{https://app.codility.com/programmers/challenges/}{Codility Pi Challenge}}{Silver Award}{}{}{}{}
-\cventry{19-20/Mar/2016}{H-Farm}{H-Ack Food}{Reinventing the ’Bio food’ experience.}{}{}{}
-\cventry{12-13/Dec/2015}{H-Farm}{H-Ack Luxottica}{Ideas for the future of glasses.}{}{}{}
-\cventry{2009}{Italian Olympics of Mathematics}{Gold \includegraphics[width=0.6em]{gold.png}}{}{}{}{}
-\cventry{2008}{Italian Olympics of Information Technology}{Bronze  \includegraphics[width=0.7em]{bronze.png}}{}{}{}{}
-
+\vspace{-1em}
+\section{Hackatons}
+\MyCvEntry{14-16/Nov/2025}{HackaHealth Zürich}{ETH Student House}{Help Patrick paraglide again despite paralysed legs.}
+\vspace{-0.3em}
+\MyCvEntry{26-27/Sep/2025}{ZurichHack}{Swiss \{ai\} Weeks}{Mine the Gap: Detect anomalies in an evolving knowledge graph.}
+\vspace{-0.3em}
+\MyCvEntry{11-12/Sep/2025}{Energy Data Hackdays}{BKW}{Smart Design of Resilient Local Energy Communities}
+\vspace{-0.3em}
+\MyCompactCvEntry{19-20/Mar/2016}{H-Farm}{H-Ack Food}{Reinventing the ’Bio food’ experience.}
+\MyCompactCvEntry{12-13/Dec/2015}{H-Farm}{H-Ack Luxottica}{Ideas for the future of glasses.}
+\vspace{-0.3em}
+\section{Prizes}
+\cventry{2024}{\href{https://app.codility.com/programmers/challenges/}{Codility Pi Challenge}}{}{Silver Award}{}{}
+\vspace{-0.2em}
+\cventry{2009}{Italian Olympics of Mathematics}{Gold \includegraphics[width=0.6em]{gold.png}}{}{}{}
+\vspace{-0.2em}
+\cventry{2008}{Italian Olympics of Information Technology}{Bronze  \includegraphics[width=0.7em]{bronze.png}}{}{}{}
 \switchcolumn
-\vspace{1.3em}
+\vspace{1em}
+\mysection{Leaderboards/training}
+\begin{itemize}
+\item[\faSortAmountUp*] \href{https://leetcode.com/u/Fdondi/}{Leetcode}
+\item[\faSortAmountUp*] \href{https://www.kaggle.com/litecoin}{Kaggle}
+\end{itemize}
+\mysection{Books to swear by}
+\begin{itemize}
+\small
+\MyBook{Designing Data-Intensive\\Applications}{Martin Kleppmann}
+\MyBook{Kubernetes Patterns}{\\ Bilgin Ibryam, Roland Huß}
+\MyBook{Effective Java}{Joshua Bloch}
+\end{itemize}
 \mysection{Personal}
 \\ 
-Hobbies:\\ Read, hike, bike, swim.
+Hobbies: Read, hike, bike, swim.
 
 \end{paracol}
 

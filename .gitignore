@@ -11,3 +11,7 @@ Letters/*
 !Letters/Imgs
 skills_ai_selector/.env
 helper
+
+__pycache__
+cv_*
+*.md

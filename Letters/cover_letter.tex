@@ -22,11 +22,22 @@
   \end{tikzpicture}
 }
 
+\newcommand{\includegenericimage}[4]{%
+  % #1: Dimensions (e.g., width=7cm)
+  % #2: Full path to the image (e.g., Logos/sensirion.avif)
+  % #3: Horizontal shift (e.g., 1cm)
+  % #4: Vertical shift (e.g., -1cm)
+  \immediate\write18{magick "#2" "#2.png"}%
+  \begin{tikzpicture}[remember picture, overlay]
+    \node[opacity=0.7, anchor=north west, shift={(#3,#4)}] at (current page.north west) {
+      \includegraphics[#1]{#2.png}
+    };
+  \end{tikzpicture}%
+}
+
 % Set up the company logo on the top-right above recipient info
 \newcommand{\companylogo}{%
-  \begin{tikzpicture}[remember picture, overlay]
-    \node[opacity=0.7, anchor=north west, shift={(0cm,0cm)}] at (current page.north west) {\includegraphics[width=7cm]{Logos/company.png}};
-  \end{tikzpicture}
+  \includegenericimage{width=12cm}{Logos/SDSC.jpg}{-1cm}{0cm}
 }
 
 % Personal data
@@ -47,12 +58,22 @@
 \companylogo
 
 % Title of the letter
-\recipient{Hiring Manager}{<< Company >>}
+\recipient{Swiss Data Science Center }{}
 \date{\today}
 \opening{Dear Hiring Manager,}
 \makelettertitle
 
-Example body
+The Swiss Data Science Center occupies a critical position in the ETH domain, acting as the essential bridge that transforms high-impact scientific research into scalable, production-ready infrastructure. This mission of industrialising data science, ensuring that breakthroughs in health, energy, and climate are not just experimental prototypes but sustainable, FAIR-compliant services, is precisely where my professional interests and technical expertise lie.
+
+My career has been shaped by taking complex, partially understood systems and making them reliable enough that other people can safely build on them. In large-scale environments, that has meant modernizing interfaces and data routing without breaking dependent services, backed by rigorous testing, clear documentation, and careful sequencing of change. In research-facing contexts, it has meant building experimentation infrastructure that stays legible as hypotheses evolve, and then carrying the winning approaches toward something that can be repeated and transferred. Across these settings, the thread is the same: align on what “works in practice” means for users, then encode it into interfaces, pipelines, and operational habits that survive beyond the first delivery.
+
+Technically, I bring a strong backend and data foundation in Python, Go, and C++, hands-on experience building and maintaining data pipelines alongside APIs, data modelling, containerisation, CI/CD, and cloud-native operations. I have learnt the value of controlled environnents where reproducibility is a firt-class priority, from Dockerized deployments and Kubernetes-based operations to test suites that validate behavior at scale. I also enjoy being the connective tissue between researchers, engineers, and operations, a position I've covered several times: translating exploratory prototypes into maintainable components, and making transitions into production environments smooth for the teams who will run them.
+
+Especially relevant to your interest in ontologies is my experience at Google's Knowledge Graph team, where I faced firsthand the challenge of defining "what is this" in a way that supports use cases for millions of users (is a new edition "the same book"? What if I draw on it?)
+
+With a Master's in Mathematics and recent specialization via the ETH Zürich CAS in Machine Learning, I am well-acquainted with the rigor and multidisciplinary nature of your academic environment. I understand the necessity of making complex systems usable and maintainable for diverse stakeholders, from hospital administrators to climate scientists.
+
+I would welcome the opportunity to discuss how my background in software engineering and data infrastructure can help SDSC turn scientific potential into real-world impact. Thank you for your time and consideration.
 
 \closing{Best Regards, \\ \vspace{2em} \includegraphics[height=3em]{Imgs/firma_estesa-nobg.png}
 \vspace{-7em}}

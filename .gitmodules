@@ -1,0 +1,3 @@
+[submodule "cv-helpers"]
+	path = cv-helpers
+	url = git@github.com:Fdondi/cv-helpers.git
